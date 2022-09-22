@@ -46,18 +46,18 @@
 
 .card-wrapper form button {
   margin-top: 20px;
-  background-color: #7176f4;
+  background-color: #ff793f;
   border: none;
   border-radius: 5px;
   padding: 6px 0;
   cursor: pointer;
   margin-bottom: 20px;
   font-weight: bold;
-  outline: 1px solid #7176f4;
+  outline: 1px solid #ff793f;
 }
 .card-wrapper form button:hover {
-  background-color: #a5a8ff;
-  outline: 1px solid #7176f4;
+  background-color: #ff9263;
+  outline: 1px solid #ff793f;
 }
 
 .card-wrapper form p {
