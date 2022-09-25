@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navigation.css";
 
-const Navigation = ({ scroll }) => {
+const Navigation = () => {
   return (
     <div className="header-container">
       <header>
