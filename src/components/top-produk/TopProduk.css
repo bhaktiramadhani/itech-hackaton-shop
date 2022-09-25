@@ -1,0 +1,70 @@
+.top-produk-container {
+  height: 676px;
+  background-color: #1b1c23;
+  padding: 25px 150px 0;
+}
+
+.top-produk-container h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #fff;
+}
+
+.card-top-wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* flex-wrap: wrap;
+  gap: 20px; */
+}
+
+.card-top-wrapper .card-produk {
+  width: 325px;
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.card-top-wrapper .card-produk .img-produk {
+  width: 325px;
+}
+
+.card-top-wrapper .card-produk h3 {
+  padding: 0 20px;
+  text-align: center;
+  font-weight: bold;
+  margin: 8px 0;
+  font-size: 20px;
+}
+
+.card-top-wrapper .card-produk .desc-container {
+  margin: 0 20px 35px 20px;
+}
+
+.card-top-wrapper .card-produk .desc-container .desc-content {
+  display: flex;
+  align-items: center;
+}
+
+.card-top-wrapper .card-produk .desc-container .desc-content img {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.card-top-wrapper .card-produk .desc-container .desc-content p {
+  font-weight: 500;
+}
+
+.card-top-wrapper .card-produk hr {
+  width: 95%;
+  margin: auto;
+}
+
+.card-top-wrapper .card-produk .price-produk {
+  text-align: center;
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 18px;
+}

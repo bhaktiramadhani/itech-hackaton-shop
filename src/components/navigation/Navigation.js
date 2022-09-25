@@ -1,26 +1,26 @@
 import React from "react";
-import "./navigation.css";
+import "./Navigation.css";
 
-const Navigation = () => {
+const Navigation = ({ scroll }) => {
   return (
-    <header>
-      <nav>
+    <div className="header-container">
+      <header>
+        <h1>
+          Warung<span>Acil</span>
+        </h1>
         <ul>
           <li>
-            <a href="#beranda">BERANDA</a>
+            <a href="#beranda">Beranda</a>
           </li>
           <li>
-            <a href="#tentang">TENTANG</a>
+            <a href="#menu">Menu</a>
           </li>
           <li>
-            <a href="#menu">MENU</a>
-          </li>
-          <li>
-            <a href="#pesan">PESAN</a>
+            <a href="#kontak">Kontak</a>
           </li>
         </ul>
-      </nav>
-    </header>
+      </header>
+    </div>
   );
 };
 
