@@ -3,6 +3,8 @@
   height: 617px;
   background-position: center;
   padding: 150px;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .hero-text-children {

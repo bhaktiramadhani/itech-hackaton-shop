@@ -22,15 +22,15 @@
   border-radius: 5px;
   border: none;
   outline: none;
-  background-color: rgb(255, 100, 100);
   cursor: pointer;
   font-size: 20px;
   color: #fff;
   transition: 0.2s;
+  background-color: rgb(255, 50, 50);
 }
 
 .dashboard-sidebar-wrapper .sidebar-close:hover {
-  background-color: rgb(255, 50, 50);
+  background-color: rgb(255, 100, 100);
 }
 .dashboard-sidebar-wrapper .sidebar-content {
   margin: 0 14px;
@@ -42,7 +42,9 @@
   gap: 20px;
 }
 
-.dashboard-sidebar-wrapper .sidebar-content .sidebar-list li {
+.dashboard-sidebar-wrapper .sidebar-content .sidebar-list a {
+  color: #fff;
+  text-decoration: none;
   padding: 10px 22px;
   cursor: pointer;
   border-radius: 10px;
@@ -52,15 +54,10 @@
   transition: 0.2s;
 }
 
-.dashboard-sidebar-wrapper .sidebar-content .sidebar-list li:hover {
+.dashboard-sidebar-wrapper .sidebar-content .sidebar-list a:hover {
   background-color: #555761;
 }
 /* sidebar close */
-
-/* dashboard main */
-.dashboard-main {
-  margin-left: 295px;
-}
 
 /* navigation */
 .dashboard-navbar-wrapper {
@@ -69,6 +66,7 @@
   justify-content: space-between;
   align-items: center;
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.5);
+  background-color: #fff;
 }
 
 .dashboard-navbar-wrapper h1 {
@@ -96,4 +94,65 @@
   font-weight: bold;
   font-size: 20px;
   cursor: pointer;
+}
+/* navigation close */
+
+/* dashboard main */
+.dashboard-main {
+  margin-left: 295px;
+  background-color: #d9d9d9;
+}
+
+/* dashboard main wrapper */
+.dashboard-main-wrapper {
+  margin-left: 26px;
+  padding-bottom: 20px;
+}
+
+.dashboard-main-wrapper h2 {
+  font-size: 30px;
+  margin: 17px 0 40px 0;
+}
+
+.dashboard-main-wrapper .dashboard-main-best-seller h3 {
+  font-size: 23px;
+  margin-bottom: 19px;
+}
+
+.dashboard-main-wrapper .dashboard-main-best-seller .dashboard-menu-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard-card {
+  background-color: #fff;
+  width: 243px;
+  border-radius: 10px;
+  padding-bottom: 42px;
+}
+
+.dashboard-card img {
+  width: 243px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.dashboard-card h4 {
+  text-align: center;
+  font-size: 18px;
+  margin: 13px 0 10px 0;
+  font-weight: bold;
+  color: #2b2e4a;
+}
+
+.dashboard-card p {
+  margin-left: 20px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.dashboard-card .dashboard-product-icon {
+  width: 10px;
+  height: 10px;
+  margin-right: 3px;
 }

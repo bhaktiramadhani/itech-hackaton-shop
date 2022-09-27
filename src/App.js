@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedAuth from "./components/protected/ProtectedAuth";
+import TambahMenuPage from "./pages/TambahMenuPage";
 
 function App() {
   return (
@@ -15,6 +16,14 @@ function App() {
           element={
             <ProtectedAuth>
               <DashboardPage />
+            </ProtectedAuth>
+          }
+        />
+        <Route
+          path="/dashboard/tambah"
+          element={
+            <ProtectedAuth>
+              <TambahMenuPage />
             </ProtectedAuth>
           }
         />

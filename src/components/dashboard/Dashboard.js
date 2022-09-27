@@ -1,34 +1,33 @@
-import React from "react";
-import ButtonLogout from "./ButtonLogout";
-import CloseSidebar from "./CloseSidebar";
+import React, { useEffect, useState } from "react";
 import "./dashboard.css";
 import DashboardCard from "./DashboardCard";
+import DashboardNavbar from "./DashboardNavbar";
+import DashboardSidebar from "./DashboardSidebar";
+import { db } from "../../config/firebase-config";
+import { collection, getDocs } from "firebase/firestore";
 
 const Dashboard = ({ handleLogOut }) => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const productsCollectionRef = collection(db, "products");
+    const getProducts = async () => {
+      const data = await getDocs(productsCollectionRef);
+      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+    getProducts();
+  }, []);
   return (
     <div className="dashboard-container">
-      <div className="dashboard-sidebar-wrapper">
-        <CloseSidebar />
-        <div className="sidebar-content">
-          <ul className="sidebar-list">
-            <li>Dashboard</li>
-            <li>Tambah Menu</li>
-          </ul>
-        </div>
-      </div>
+      <DashboardSidebar />
       <div className="dashboard-main">
-        <div className="dashboard-navbar-wrapper">
-          <h1>
-            Warung<span>Acil</span>
-          </h1>
-          <ButtonLogout handleLogOut={handleLogOut} />
-        </div>
+        <DashboardNavbar handleLogOut={handleLogOut} />
         <div className="dashboard-main-wrapper">
           <h2>Dashboard</h2>
           <div className="dashboard-main-best-seller">
             <h3>Best Seller</h3>
             <div className="dashboard-menu-wrapper">
-              <DashboardCard />
+              <DashboardCard products={products} />
             </div>
           </div>
         </div>
