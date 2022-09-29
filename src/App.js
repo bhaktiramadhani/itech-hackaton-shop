@@ -20,7 +20,7 @@ function App() {
           }
         />
         <Route
-          path="/dashboard/tambah"
+          path="/tambah"
           element={
             <ProtectedAuth>
               <TambahMenuPage />

@@ -5,6 +5,7 @@ import DashboardNavbar from "./DashboardNavbar";
 import DashboardSidebar from "./DashboardSidebar";
 import { db } from "../../config/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
+import garis from "../../assets/images/garis.png";
 
 const Dashboard = ({ handleLogOut }) => {
   const [products, setProducts] = useState([]);
@@ -25,7 +26,10 @@ const Dashboard = ({ handleLogOut }) => {
         <div className="dashboard-main-wrapper">
           <h2>Dashboard</h2>
           <div className="dashboard-main-best-seller">
-            <h3>Best Seller</h3>
+            <div className="heading-best-seller">
+              <img src={garis} alt="garis" id="garis" />
+              <h3>Best Seller</h3>
+            </div>
             <div className="dashboard-menu-wrapper">
               <DashboardCard products={products} />
             </div>
