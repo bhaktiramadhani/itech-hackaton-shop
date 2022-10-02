@@ -11,12 +11,14 @@ const DashboardCardMore = ({ id }) => {
       alert("berhasil dihapus");
     });
   };
+
   return (
     <div className="button-card-wrapper" id={id}>
       <button
         onClick={() => {
           document.getElementById(id).style.display = "none";
         }}
+        className="button-close-card"
       >
         x
       </button>

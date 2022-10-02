@@ -6,6 +6,7 @@ import DashboardSidebar from "./DashboardSidebar";
 import { db } from "../../config/firebase-config";
 import { collection, getDocs } from "firebase/firestore";
 import garis from "../../assets/images/garis.png";
+import DashboardFooter from "./DashboardFooter";
 
 const Dashboard = ({ handleLogOut }) => {
   const [products, setProducts] = useState([]);
@@ -25,16 +26,28 @@ const Dashboard = ({ handleLogOut }) => {
         <DashboardNavbar handleLogOut={handleLogOut} />
         <div className="dashboard-main-wrapper">
           <h2>Dashboard</h2>
-          <div className="dashboard-main-best-seller">
-            <div className="heading-best-seller">
-              <img src={garis} alt="garis" id="garis" />
-              <h3>Best Seller</h3>
+          <div className="dashboard-main-kategori-container">
+            <div className="dashboard-main-kategori">
+              <div className="heading-best-seller">
+                <img src={garis} alt="garis" id="garis" />
+                <h3>Best Seller</h3>
+              </div>
+              <div className="dashboard-menu-wrapper">
+                <DashboardCard products={products} kategori="Best Seller" />
+              </div>
             </div>
-            <div className="dashboard-menu-wrapper">
-              <DashboardCard products={products} />
+            <div className="dashboard-main-kategori">
+              <div className="heading-best-seller">
+                <img src={garis} alt="garis" id="garis" />
+                <h3>Biasa</h3>
+              </div>
+              <div className="dashboard-menu-wrapper">
+                <DashboardCard products={products} kategori="Biasa" />
+              </div>
             </div>
           </div>
         </div>
+        <DashboardFooter />
       </div>
     </div>
   );
