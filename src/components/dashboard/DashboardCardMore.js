@@ -6,10 +6,18 @@ import { db } from "../../config/firebase-config";
 
 const DashboardCardMore = ({ id }) => {
   const handleDelete = async (id) => {
-    const productDoc = doc(db, "products", id);
-    await deleteDoc(productDoc).then(() => {
-      alert("berhasil dihapus");
-    });
+    const checkDelete = window.confirm(
+      "apakah anda yakin untuk menghapus ini?"
+    );
+    if (checkDelete) {
+      const productDoc = doc(db, "products", id);
+      await deleteDoc(productDoc).then(() => {
+        alert("berhasil dihapus");
+        window.location.reload();
+      });
+    } else {
+      return;
+    }
   };
 
   return (

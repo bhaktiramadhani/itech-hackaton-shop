@@ -28,7 +28,7 @@ const Dashboard = ({ handleLogOut }) => {
           <h2>Dashboard</h2>
           <div className="dashboard-main-kategori-container">
             <div className="dashboard-main-kategori">
-              <div className="heading-best-seller">
+              <div className="heading-main-kategori">
                 <img src={garis} alt="garis" id="garis" />
                 <h3>Best Seller</h3>
               </div>
@@ -37,7 +37,7 @@ const Dashboard = ({ handleLogOut }) => {
               </div>
             </div>
             <div className="dashboard-main-kategori">
-              <div className="heading-best-seller">
+              <div className="heading-main-kategori">
                 <img src={garis} alt="garis" id="garis" />
                 <h3>Biasa</h3>
               </div>
