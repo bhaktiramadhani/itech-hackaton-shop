@@ -14,7 +14,6 @@ import { addDoc, collection } from "firebase/firestore";
 
 const TambahMenu = ({ handleLogOut }) => {
   const [imgFile, setImgFile] = useState(null);
-  const [progressBar, setProgressBar] = useState(0);
   const [imgUrl, setImgUrl] = useState("");
   const navigate = useNavigate();
 
@@ -27,21 +26,25 @@ const TambahMenu = ({ handleLogOut }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     alert("tunggu sebentar!");
-    await addDoc(collection(db, "products"), {
-      nama: nama,
-      harga: harga,
-      kategori: kategori,
-      desc: desc,
-      img: imgUrl,
-    })
-      .then(() => {
-        alert("success");
-        navigate("/dashboard");
+    if (nama !== "" && harga !== "" && desc !== "") {
+      await addDoc(collection(db, "products"), {
+        nama: nama,
+        harga: harga,
+        kategori: kategori,
+        desc: desc,
+        img: imgUrl,
       })
-      .catch((err) => {
-        console.log(err);
-      });
-    e.target.reset();
+        .then(() => {
+          alert("success");
+          navigate("/dashboard");
+          e.target.reset();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else {
+      return alert("silahkan isi terlebih dahulu!");
+    }
   };
 
   const handleRemove = () => {
@@ -78,7 +81,6 @@ const TambahMenu = ({ handleLogOut }) => {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          setProgressBar(progress);
           console.log(progress);
         },
         (error) => {
@@ -106,6 +108,11 @@ const TambahMenu = ({ handleLogOut }) => {
 
     imgFile && uploadFile();
   }, [imgFile]);
+
+  window.onbeforeunload = (e) => {
+    return "are you sure?";
+  };
+
   return (
     <div className="dashboard-container">
       <DashboardSidebar />
@@ -145,7 +152,7 @@ const TambahMenu = ({ handleLogOut }) => {
                 <label>Harga Produk</label>
                 <input
                   type="text"
-                  placeholder="Isi harga produk..."
+                  placeholder="Isi harga produk"
                   onChange={(e) => setHarga(e.target.value)}
                 />
               </div>

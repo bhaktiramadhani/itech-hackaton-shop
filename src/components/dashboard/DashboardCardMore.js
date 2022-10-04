@@ -15,9 +15,7 @@ const DashboardCardMore = ({ id }) => {
         alert("berhasil dihapus");
         window.location.reload();
       });
-    } else {
-      return;
-    }
+    } else return;
   };
 
   return (
