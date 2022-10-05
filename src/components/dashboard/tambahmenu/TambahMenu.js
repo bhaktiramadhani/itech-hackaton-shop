@@ -29,7 +29,7 @@ const TambahMenu = ({ handleLogOut }) => {
     if (nama !== "" && harga !== "" && desc !== "") {
       await addDoc(collection(db, "products"), {
         nama: nama,
-        harga: harga,
+        harga: `${harga}/Porsi`,
         kategori: kategori,
         desc: desc,
         img: imgUrl,
@@ -60,7 +60,7 @@ const TambahMenu = ({ handleLogOut }) => {
       const textFile = document.getElementById("text-file");
       textFile.style.display = "block";
       const fotoProduk = document.querySelector(".foto-produk");
-      fotoProduk.style.width = "400px";
+      fotoProduk.style.width = "350px";
       fotoProduk.style.height = "156px";
       setImgUrl("");
       const images = document.getElementById("img-file");
@@ -88,7 +88,6 @@ const TambahMenu = ({ handleLogOut }) => {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            // setData((prev) => ({ ...prev, img: downloadURL }));
             setImgUrl(downloadURL);
             const buttonFile = document.getElementById("button-file");
             buttonFile.style.display = "block";
@@ -109,8 +108,23 @@ const TambahMenu = ({ handleLogOut }) => {
     imgFile && uploadFile();
   }, [imgFile]);
 
-  window.onbeforeunload = (e) => {
-    return "are you sure?";
+  const handlePrice = (e) => {
+    function formatRupiah(angka, prefix) {
+      var number_string = angka.replace(/[^,\d]/g, "").toString(),
+        split = number_string.split(","),
+        sisa = split[0].length % 3,
+        rupiah = split[0].substr(0, sisa),
+        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+      if (ribuan) {
+        let separator = sisa ? "." : "";
+        rupiah += separator + ribuan.join(".");
+      }
+
+      rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
+      return prefix === undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
+    }
+    e.target.value = formatRupiah(e.target.value, "Rp. ");
+    setHarga(e.target.value);
   };
 
   return (
@@ -154,6 +168,7 @@ const TambahMenu = ({ handleLogOut }) => {
                   type="text"
                   placeholder="Isi harga produk"
                   onChange={(e) => setHarga(e.target.value)}
+                  onKeyUp={handlePrice}
                 />
               </div>
               <div className="two-produk-wrapper">

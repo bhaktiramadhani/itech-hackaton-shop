@@ -1,6 +1,6 @@
-.dashboard-container {
-  /* height: 1101px; */
-}
+/* .dashboard-container {
+  height: 1101px;
+} */
 
 
 
@@ -78,8 +78,9 @@
   transition: 0.2s;
   background-color: #1b1c23;
   position: fixed;
-  top: 8%;
+  top: 15%;
   display: none;
+  z-index: 9999;
 }
 /* sidebar close */
 
@@ -144,10 +145,11 @@
   display: flex;
   flex-direction: column;
   gap: 18px;
+  min-height: 1004px;
 }
 
 .dashboard-main-wrapper .dashboard-main-kategori .heading-main-kategori {
-  width: 13%;
+  width: 80%;
   display: flex;
   gap: 6px;
   align-items: center;
@@ -336,13 +338,6 @@
   flex-direction: column;
 }
 
-.tambah-input-wrapper .one-wrapper .one-produk-wrapper textarea{
-  max-width: 350px;
-  min-width: 350px;
-  min-height: 157px;
-  max-height: 157px;
-}
-
 .tambah-input-wrapper .one-wrapper .one-produk-wrapper label{
   font-size: 19px;
   font-weight: bold;
@@ -357,6 +352,10 @@
   outline: none;
   background-color: #d9d9d9;
   border-radius: 5px;
+  max-width: 350px;
+  min-width: 350px;
+  min-height: 157px;
+  max-height: 157px;
 }
 
 .tambah-input-wrapper .one-wrapper .one-produk-wrapper .foto-produk{
@@ -382,7 +381,6 @@
   font-size: 21px;
   font-weight: 500;
   color: #ababab;
-  /* display: none; */
 }
 
 .tambah-input-wrapper .one-wrapper .one-produk-wrapper .foto-produk button{
@@ -489,4 +487,121 @@
   font-size: 21px;
   font-weight: 500;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+.tambah-input-wrapper #upload-produk:hover{
+  background-color:#fd6320;
+}
+
+
+/* responsive */
+
+@media (max-width: 1310px){
+  .dashboard-sidebar-wrapper{
+    width: 98vw;
+    z-index: 999;
+  }
+}
+
+@media (max-width: 1020px){
+  .tambah-input-wrapper .one-wrapper{
+    flex-direction: column;
+  }
+  .tambah-input-wrapper .two-wrapper{
+    flex-direction: column;
+  }
+
+  .tambah-input-wrapper .desc-produk-wrapper textarea{
+    min-width: 400px;
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 700px){
+  .dashboard-navbar-wrapper h1{
+    width: 18%;
+  }
+  .dashboard-main-wrapper .dashboard-main-kategori .heading-main-kategori{
+    margin: 0;
+  }
+  .dashboard-main-wrapper .dashboard-main-kategori .dashboard-menu-wrapper{
+    margin-left: 0;
+  }
+  .dashboard-footer-wrapper{
+    justify-content: center;
+  }
+  .dashboard-sidebar-wrapper{
+    width: 98vw;
+    z-index: 9999;
+  }
+  .tambah-input-wrapper{
+    margin: 0 30px 0 0;
+  }
+
+  /* tambah-menu */
+  .tambah-input-wrapper .one-wrapper{
+    flex-direction: column;
+  }
+  .tambah-input-wrapper .two-wrapper{
+    flex-direction: column;
+  }
+
+  .tambah-input-wrapper{
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .tambah-input-wrapper .two-wrapper .two-produk-wrapper input{
+    width: 350px;
+  }
+    .tambah-input-wrapper .one-wrapper .one-produk-wrapper .foto-produk{
+    width: 350px;
+  }
+  
+  .tambah-input-wrapper .desc-produk-wrapper{
+    align-items: center;
+  }
+  
+  .tambah-input-wrapper .desc-produk-wrapper textarea{
+      min-width: 350px;
+      max-width: 350px;
+  }
+  .tambah-input-wrapper .one-wrapper .one-produk-wrapper{
+    align-items: center;
+  }
+  
+  .tambah-input-wrapper .two-wrapper .two-produk-wrapper{
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+}
+
+
+@media (max-width: 500px){
+  .dashboard-navbar-wrapper h1{
+    width: 25%;
+  }
+
+  .tambah-input-wrapper .two-wrapper .two-produk-wrapper input{
+    width: 280px;
+  }
+    .tambah-input-wrapper .one-wrapper .one-produk-wrapper .foto-produk{
+    width: 280px;
+  }
+    .tambah-input-wrapper .desc-produk-wrapper textarea{
+      min-width: 280px;
+      max-width: 280px;
+    }
+
+    .tambah-input-wrapper .one-wrapper .one-produk-wrapper .input-nama{
+      max-width: 280px;
+      min-width: 280px;
+    }
+    .tambah-input-wrapper .two-wrapper .two-produk-wrapper select{
+      width: 280px;
+    }
 }
