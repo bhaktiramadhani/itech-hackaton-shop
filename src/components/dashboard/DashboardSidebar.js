@@ -16,9 +16,12 @@ const DashboardSidebar = () => {
   };
 
   const handleOpenSidebar = () => {
-    document.querySelector(".dashboard-sidebar-wrapper").style.display = "flex";
-    document.querySelector(".dashboard-main").style.marginLeft = "295px";
+    const dashboardWrapper = document.querySelector(
+      ".dashboard-sidebar-wrapper"
+    );
+    dashboardWrapper.style.display = "flex";
     document.querySelector(".button-open-sidebar").style.display = "none";
+    document.querySelector(".dashboard-main").style.marginLeft = "295px";
   };
   return (
     <>

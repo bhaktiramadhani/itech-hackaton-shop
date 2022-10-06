@@ -11,7 +11,7 @@
   width: 295px;
   height: 100vh;
   position: fixed;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 
@@ -66,6 +66,8 @@
 
 
 
+
+
 .button-open-sidebar{
   width: 35px;
   height: 35px;
@@ -79,7 +81,7 @@
   background-color: #1b1c23;
   position: fixed;
   top: 15%;
-  display: none;
+  display: block;
   z-index: 9999;
 }
 /* sidebar close */
@@ -124,7 +126,7 @@
 
 /* dashboard main */
 .dashboard-main {
-  margin-left: 295px;
+  margin-left: 0px;
   background-color: #d9d9d9;
 }
 
@@ -163,7 +165,7 @@
 .dashboard-main-wrapper .dashboard-main-kategori .dashboard-menu-wrapper {
   display: flex;
   gap: 48px;
-  margin-left: 67px;
+  margin: 0 26px 0 67px;
   overflow: auto;
   padding: 20px 0;
 }
@@ -499,7 +501,8 @@
 
 @media (max-width: 1310px){
   .dashboard-sidebar-wrapper{
-    width: 98vw;
+    width: 295px;
+    height: 100%;
     z-index: 999;
   }
 }
@@ -532,7 +535,8 @@
     justify-content: center;
   }
   .dashboard-sidebar-wrapper{
-    width: 98vw;
+    width: 100vw;
+    height: 100%;
     z-index: 9999;
   }
   .tambah-input-wrapper{
@@ -604,4 +608,8 @@
     .tambah-input-wrapper .two-wrapper .two-produk-wrapper select{
       width: 280px;
     }
+  .dashboard-sidebar-wrapper{
+    width: 100vw;
+    overflow-y: hidden;
+  }
 }
