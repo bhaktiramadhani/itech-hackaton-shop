@@ -22,7 +22,7 @@ const HomePage = () => {
   // }, []);
   return (
     <>
-      <div className="container" style={{ height: "2000px" }}>
+      <div className="container">
         <div className="hero-wrapper">
           <Navigation />
           <Hero />

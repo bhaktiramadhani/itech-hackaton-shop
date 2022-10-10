@@ -2,7 +2,7 @@ import React from "react";
 import DashboardCardButton from "./DashboardCardButton";
 import DashboardCardMore from "./DashboardCardMore";
 
-const DashboardCard = ({ products, kategori }) => {
+const DashboardCard = ({ products, kategori, handleEdit }) => {
   return (
     <>
       {products
@@ -16,7 +16,12 @@ const DashboardCard = ({ products, kategori }) => {
               key={product.id}
               style={{ zIndex: 999 }}
             >
-              <DashboardCardMore id={product.id} />
+              <DashboardCardMore
+                id={product.id}
+                handleEdit={handleEdit}
+                product={product}
+                imgName={product.imgNama}
+              />
               <img
                 src={product.img}
                 alt={product.nama}

@@ -2,9 +2,10 @@ import React from "react";
 import editButtonLogo from "../../assets/images/edit.svg";
 import deleteButtonLogo from "../../assets/images/delete.svg";
 import { doc, deleteDoc } from "firebase/firestore";
-import { db } from "../../config/firebase-config";
+import { deleteObject, ref } from "firebase/storage";
+import { db, storage } from "../../config/firebase-config";
 
-const DashboardCardMore = ({ id }) => {
+const DashboardCardMore = ({ id, handleEdit, product, imgNama }) => {
   const handleDelete = async (id) => {
     const checkDelete = window.confirm(
       "apakah anda yakin untuk menghapus ini?"
@@ -15,9 +16,13 @@ const DashboardCardMore = ({ id }) => {
         alert("berhasil dihapus");
         window.location.reload();
       });
+      // delete img tidak berfungsi
+      const imgRef = ref(storage, `images/${imgNama}`);
+      deleteObject(imgRef)
+        .then(() => alert("berhasil dihapus"))
+        .catch((err) => console.log(err));
     } else return;
   };
-
   return (
     <div className="button-card-wrapper" id={id}>
       <button
@@ -28,7 +33,12 @@ const DashboardCardMore = ({ id }) => {
       >
         x
       </button>
-      <div className="button-card-edit">
+      <div
+        className="button-card-edit"
+        onClick={() => {
+          handleEdit(product);
+        }}
+      >
         <p className="button-edit-text">Edit</p>
         <img src={editButtonLogo} alt="edit" width={10} height={10} />
       </div>

@@ -11,6 +11,7 @@ import {
 } from "firebase/storage";
 import { db, storage } from "../../../config/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
+import TambahMenuForm from "./TambahMenuForm";
 
 const TambahMenu = ({ handleLogOut }) => {
   const [imgFile, setImgFile] = useState(null);
@@ -33,6 +34,7 @@ const TambahMenu = ({ handleLogOut }) => {
         kategori: kategori,
         desc: desc,
         img: imgUrl,
+        imgNama: imgFile.name,
       })
         .then(() => {
           alert("success");
@@ -60,7 +62,7 @@ const TambahMenu = ({ handleLogOut }) => {
       const textFile = document.getElementById("text-file");
       textFile.style.display = "block";
       const fotoProduk = document.querySelector(".foto-produk");
-      fotoProduk.style.width = "350px";
+      fotoProduk.style.width = "100%";
       fotoProduk.style.height = "156px";
       setImgUrl("");
       const images = document.getElementById("img-file");
@@ -73,6 +75,7 @@ const TambahMenu = ({ handleLogOut }) => {
 
   useEffect(() => {
     const uploadFile = () => {
+      console.log(imgFile.name);
       const storageRef = ref(storage, `images/${imgFile.name}`);
       const uploadTask = uploadBytesResumable(storageRef, imgFile);
 
@@ -108,25 +111,6 @@ const TambahMenu = ({ handleLogOut }) => {
     imgFile && uploadFile();
   }, [imgFile]);
 
-  const handlePrice = (e) => {
-    function formatRupiah(angka, prefix) {
-      var number_string = angka.replace(/[^,\d]/g, "").toString(),
-        split = number_string.split(","),
-        sisa = split[0].length % 3,
-        rupiah = split[0].substr(0, sisa),
-        ribuan = split[0].substr(sisa).match(/\d{3}/gi);
-      if (ribuan) {
-        let separator = sisa ? "." : "";
-        rupiah += separator + ribuan.join(".");
-      }
-
-      rupiah = split[1] !== undefined ? rupiah + "," + split[1] : rupiah;
-      return prefix === undefined ? rupiah : rupiah ? "Rp. " + rupiah : "";
-    }
-    e.target.value = formatRupiah(e.target.value, "Rp. ");
-    setHarga(e.target.value);
-  };
-
   return (
     <div className="dashboard-container">
       <DashboardSidebar />
@@ -134,70 +118,17 @@ const TambahMenu = ({ handleLogOut }) => {
         <DashboardNavbar handleLogOut={handleLogOut} />
         <div className="tambah-wrapper">
           <h2>Tambah Menu</h2>
-          <form className="tambah-input-wrapper" onSubmit={handleSubmit}>
-            <div className="one-wrapper">
-              <div className="one-produk-wrapper">
-                <label>Foto Produk</label>
-                <div className="foto-produk">
-                  <img src={imgUrl} alt="test" hidden id="img-file" />
-                  <p id="text-file">Upload Disini</p>
-                  <input
-                    type="file"
-                    onChange={(e) => setImgFile(e.target.files[0])}
-                    id="input-file-img"
-                  />
-                  <button id="button-file" onClick={handleRemove} type="button">
-                    X
-                  </button>
-                </div>
-              </div>
-              <div className="one-produk-wrapper">
-                <label>Nama Produk</label>
-                <textarea
-                  type="text"
-                  onChange={(e) => setNama(e.target.value)}
-                  className="input-nama"
-                  placeholder="Isi nama produk"
-                />
-              </div>
-            </div>
-            <div className="two-wrapper">
-              <div className="two-produk-wrapper">
-                <label>Harga Produk</label>
-                <input
-                  type="text"
-                  placeholder="Isi harga produk"
-                  onChange={(e) => setHarga(e.target.value)}
-                  onKeyUp={handlePrice}
-                />
-              </div>
-              <div className="two-produk-wrapper">
-                <label>Kategori Produk</label>
-                <select
-                  onChange={(e) => {
-                    if (e.target.options.selectedIndex === 0) {
-                      setKategori("Best Seller");
-                    } else {
-                      setKategori("Biasa");
-                    }
-                  }}
-                >
-                  <option className="option-kategori">Best Seller</option>
-                  <option className="option-kategori">Biasa</option>
-                </select>
-              </div>
-            </div>
-            <div className="desc-produk-wrapper">
-              <label>Deskripsi Produk</label>
-              <textarea
-                placeholder="Isi deskripsi produk"
-                onChange={(e) => setDesc(e.target.value)}
-              />
-            </div>
-            <button type="submit" id="upload-produk">
-              Upload
-            </button>
-          </form>
+          <TambahMenuForm
+            handleRemove={handleRemove}
+            handleSubmit={handleSubmit}
+            imgUrl={imgUrl}
+            setDesc={setDesc}
+            setHarga={setHarga}
+            setImgFile={setImgFile}
+            setKategori={setKategori}
+            setNama={setNama}
+            harga={harga}
+          />
         </div>
       </div>
       <DashboardFooter />
