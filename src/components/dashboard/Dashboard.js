@@ -9,6 +9,10 @@ import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
 import garis from "../../assets/images/garis.png";
 import DashboardFooter from "./DashboardFooter";
 import TambahMenuForm from "./tambahmenu/TambahMenuForm";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
+export const MySwal = withReactContent(Swal);
 
 const Dashboard = ({ handleLogOut }) => {
   const [products, setProducts] = useState([]);
@@ -25,24 +29,26 @@ const Dashboard = ({ handleLogOut }) => {
   }, []);
 
   const handleEdit = (product) => {
+    document.querySelector(".validasi-form").setAttribute("hidden", true);
     document.querySelector(".modal-container").style.display = "flex";
     setModal(true);
+    const harga = product.harga.split("/").shift();
     setProduct({
       img: product.img,
       nama: product.nama,
-      harga: product.harga,
+      harga: harga,
       kategori: product.kategori,
       desc: product.desc,
       imgNama: product.imgNama,
       id: product.id,
     });
-    console.log(product);
   };
 
-  const handleRemoveDashboard = (editImgNama, setEditImgUrl) => {
+  const handleRemoveDashboard = (newImgNama, setEditImgUrl) => {
     const checkDelete = window.confirm("apakah anda yakin untuk menghapus?");
     if (checkDelete) {
-      const imgRef = ref(storage, `images/${editImgNama.name}`);
+      console.log(newImgNama);
+      const imgRef = ref(storage, `images/${newImgNama}`);
       deleteObject(imgRef)
         .then(() => alert("berhasil dihapus"))
         .catch((err) => console.log(err));
@@ -63,7 +69,7 @@ const Dashboard = ({ handleLogOut }) => {
     } else return;
   };
 
-  const handleSubmitDashboard = async (
+  const handleSubmit = async (
     editImgUrl,
     editNama,
     editHarga,
@@ -84,13 +90,68 @@ const Dashboard = ({ handleLogOut }) => {
       kategori: editKategori,
     })
       .then(() => {
-        console.log("update berhasil");
+        MySwal.fire({
+          icon: "success",
+          title: "Berhasil diedit",
+        });
         window.location.reload();
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  const handleSubmitDashboard = async (
+    editImgUrl,
+    editNama,
+    editHarga,
+    editKategori,
+    editDesc,
+    newImgNama,
+    editId,
+    e
+  ) => {
+    e.preventDefault();
+    if (
+      editImgUrl !== "" &&
+      editNama !== "" &&
+      editHarga !== "" &&
+      editKategori !== "" &&
+      editDesc !== "" &&
+      newImgNama !== ""
+    ) {
+      document.querySelector(".modal-container").style.display = "none";
+      MySwal.fire({
+        icon: "warning",
+        title: "Edit Product",
+        text: "Apakah Kamu yakin untuk mengedit ini?",
+        showCancelButton: true,
+        cancelButtonColor: "#d33",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Edit",
+        cancelButtonText: "Tidak",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          handleSubmit(
+            editImgUrl,
+            editNama,
+            editHarga,
+            editKategori,
+            editDesc,
+            newImgNama,
+            editId,
+            e
+          );
+        } else {
+          // document.querySelector(".modal-container").style.display = "flex";
+          return;
+        }
+      });
+    } else {
+      document.querySelector(".validasi-form").removeAttribute("hidden");
+    }
+  };
+
   return (
     <div className="dashboard-container">
       <div

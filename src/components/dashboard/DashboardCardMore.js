@@ -4,24 +4,40 @@ import deleteButtonLogo from "../../assets/images/delete.svg";
 import { doc, deleteDoc } from "firebase/firestore";
 import { deleteObject, ref } from "firebase/storage";
 import { db, storage } from "../../config/firebase-config";
+import { MySwal } from "./Dashboard";
 
 const DashboardCardMore = ({ id, handleEdit, product, imgNama }) => {
   const handleDelete = async (id) => {
-    const checkDelete = window.confirm(
-      "apakah anda yakin untuk menghapus ini?"
-    );
-    if (checkDelete) {
-      const productDoc = doc(db, "products", id);
-      await deleteDoc(productDoc).then(() => {
-        alert("berhasil dihapus");
-        window.location.reload();
+    MySwal.fire({
+      icon: "warning",
+      title: "Hapus Product",
+      text: "Apakah Kamu yakin untuk menghapus ini?",
+      showCancelButton: true,
+      cancelButtonColor: "#d33",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "Hapus",
+      cancelButtonText: "Tidak",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleted(id);
+      } else return;
+    });
+  };
+
+  const deleted = async (id) => {
+    const productDoc = doc(db, "products", id);
+    await deleteDoc(productDoc).then(() => {
+      window.location.reload();
+      MySwal.fire({
+        icon: "success",
+        title: "Berhasil dihapus",
       });
-      // delete img tidak berfungsi
-      const imgRef = ref(storage, `images/${imgNama}`);
-      deleteObject(imgRef)
-        .then(() => alert("berhasil dihapus"))
-        .catch((err) => console.log(err));
-    } else return;
+    });
+    // delete img tidak berfungsi
+    const imgRef = ref(storage, `images/${imgNama}`);
+    deleteObject(imgRef)
+      .then(() => alert("berhasil dihapus"))
+      .catch((err) => console.log(err));
   };
   return (
     <div className="button-card-wrapper" id={id}>

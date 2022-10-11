@@ -481,7 +481,7 @@
 
 .tambah-input-wrapper #upload-produk{
   padding: 10px 54px 12px 53px;
-  background-color: #FF793F;
+  background-color:#fd6320;
   border: none;
   outline: none;
   border-radius: 5px;
@@ -493,7 +493,7 @@
 }
 
 .tambah-input-wrapper #upload-produk:hover{
-  background-color:#fd6320;
+  background-color: #FF793F;
 }
 
 /* edit input */
@@ -515,6 +515,24 @@
   border-radius: 10px;
   height: 100%;
   overflow-y: scroll;
+}
+
+.validasi-form{
+  color: red;
+  padding-bottom: 8px;
+  animation: validasiForm 0.5s infinite;
+}
+
+@keyframes validasiForm {
+  from{
+    color: #000;
+  }
+  80%{
+    transform: translateY(5px);
+  }
+  to{
+    color: red;
+  }
 }
 
 

@@ -12,6 +12,7 @@ import {
 import { db, storage } from "../../../config/firebase-config";
 import { addDoc, collection } from "firebase/firestore";
 import TambahMenuForm from "./TambahMenuForm";
+import { MySwal } from "../Dashboard";
 
 const TambahMenu = ({ handleLogOut }) => {
   const [imgFile, setImgFile] = useState(null);
@@ -26,8 +27,12 @@ const TambahMenu = ({ handleLogOut }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("tunggu sebentar!");
     if (nama !== "" && harga !== "" && desc !== "") {
+      MySwal.fire({
+        icon: "info",
+        title: "tunggu sebentar",
+        timer: 2500,
+      });
       await addDoc(collection(db, "products"), {
         nama: nama,
         harga: `${harga}/Porsi`,
@@ -37,7 +42,10 @@ const TambahMenu = ({ handleLogOut }) => {
         imgNama: imgFile.name,
       })
         .then(() => {
-          alert("success");
+          MySwal.fire({
+            icon: "success",
+            title: "Berhasil menambahkan Product",
+          });
           navigate("/dashboard");
           e.target.reset();
         })
@@ -45,7 +53,7 @@ const TambahMenu = ({ handleLogOut }) => {
           console.log(err);
         });
     } else {
-      return alert("silahkan isi terlebih dahulu!");
+      document.querySelector(".validasi-form").removeAttribute("hidden");
     }
   };
 

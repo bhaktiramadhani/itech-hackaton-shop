@@ -28,6 +28,7 @@ const TambahMenuForm = ({
   useEffect(() => {
     const uploadFile = () => {
       console.log(editImgNama);
+      setNewImgNama(editImgNama.name);
       const storageRef = ref(storage, `images/${editImgNama.name}`);
       const uploadTask = uploadBytesResumable(storageRef, editImgNama);
 
@@ -153,7 +154,7 @@ const TambahMenuForm = ({
               id="button-file"
               onClick={() =>
                 dashboard
-                  ? handleRemoveDashboard(editImgNama, setEditImgUrl)
+                  ? handleRemoveDashboard(newImgNama, setEditImgUrl)
                   : handleRemove()
               }
               type="button"
@@ -226,6 +227,9 @@ const TambahMenuForm = ({
           value={dashboard && editDesc}
         />
       </div>
+      <p className="validasi-form" hidden>
+        ISI SEMUA TERLEBIH DAHULU
+      </p>
       <button type="submit" id="upload-produk">
         {dashboard ? "Edit" : "Upload"}
       </button>
