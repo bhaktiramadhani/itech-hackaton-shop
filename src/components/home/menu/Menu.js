@@ -1,7 +1,7 @@
 import React from "react";
 import CardMenu from "./CardMenu";
 import "./Menu.css";
-import produk from "../../assets/images/produk.png";
+import produk from "../../../assets/images/produk.png";
 
 const Menu = () => {
   return (

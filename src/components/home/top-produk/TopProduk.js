@@ -1,7 +1,7 @@
 import React from "react";
 import CardTopProduk from "./CardTopProduk";
 import "./TopProduk.css";
-import produk from "../../assets/images/produk.png";
+import produk from "../../../assets/images/produk.png";
 
 const TopProduk = () => {
   return (

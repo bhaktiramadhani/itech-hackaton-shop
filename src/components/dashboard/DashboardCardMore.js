@@ -33,7 +33,6 @@ const DashboardCardMore = ({ id, handleEdit, product, imgNama }) => {
         title: "Berhasil dihapus",
       });
     });
-    // delete img tidak berfungsi
     const imgRef = ref(storage, `images/${imgNama}`);
     deleteObject(imgRef)
       .then(() => alert("berhasil dihapus"))
@@ -43,7 +42,8 @@ const DashboardCardMore = ({ id, handleEdit, product, imgNama }) => {
     <div className="button-card-wrapper" id={id}>
       <button
         onClick={() => {
-          document.getElementById(id).style.display = "none";
+          const close = document.getElementById(id);
+          close.style.display = "none";
         }}
         className="button-close-card"
       >

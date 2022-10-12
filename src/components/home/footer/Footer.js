@@ -1,7 +1,7 @@
 import React from "react";
-import waLogo from "../../assets/images/whatsapp.svg";
-import igLogo from "../../assets/images/instagram.svg";
-import fbLogo from "../../assets/images/facebook.svg";
+import waLogo from "../../../assets/images/whatsapp.svg";
+import igLogo from "../../../assets/images/instagram.svg";
+import fbLogo from "../../../assets/images/facebook.svg";
 import "./Footer.css";
 
 const Footer = () => {

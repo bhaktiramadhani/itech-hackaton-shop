@@ -1,5 +1,5 @@
 import React from "react";
-import check from "../../assets/images/check.png";
+import check from "../../../assets/images/check.png";
 
 const CardTopProduk = ({ img, nama, desc, price }) => {
   return (

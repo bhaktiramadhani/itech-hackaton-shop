@@ -1,9 +1,15 @@
+.card-wrapper-container{
+  background-color: #d9d9d9;
+  width: 100vw;
+  height: 100vh;
+}
+
 .card-wrapper {
   position: absolute;
   top: 50%;
   right: 50%;
   transform: translate(50%, -50%);
-  background-color: #d9d9d9;
+  background-color: #fff;
   width: 400px;
   height: 350px;
   padding: 50px;
@@ -11,6 +17,7 @@
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  box-shadow: 1px 4px 10px 3px rgba(0, 0, 0, .5);
 }
 
 .card-wrapper .card-heading {
@@ -42,9 +49,10 @@
   border-radius: 5px;
   height: 25px;
   padding-left: 5px;
+  background-color: #d9d9d9;
 }
 
-.card-wrapper form button {
+.card-wrapper form #login-button {
   margin-top: 20px;
   background-color: #ff793f;
   border: none;
@@ -54,8 +62,9 @@
   margin-bottom: 20px;
   font-weight: bold;
   outline: 1px solid #ff793f;
+  color: #fff;
 }
-.card-wrapper form button:hover {
+.card-wrapper form #login-button:hover {
   background-color: #ff9263;
   outline: 1px solid #ff793f;
 }
@@ -64,12 +73,19 @@
   font-weight: bold;
 }
 
-.card-wrapper form p a {
+.card-wrapper form p .forget-password {
   color: #297479;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 3px;
+  background-color: transparent;
+  font-weight: bold;
+  
 }
 
-.card-wrapper form p a:hover {
-  text-decoration: none;
+.card-wrapper form p .forget-password:hover {
+  text-decoration: underline;
 }
 
 @media (max-width: 560px) {
