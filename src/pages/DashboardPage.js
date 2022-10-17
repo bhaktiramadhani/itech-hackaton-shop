@@ -4,7 +4,7 @@ import { auth } from "../config/firebase-config";
 import { signOut } from "firebase/auth";
 import { MySwal } from "../components/dashboard/Dashboard";
 
-const DashboardPage = () => {
+const DashboardPage = ({ products }) => {
   const logOut = async () => {
     await signOut(auth);
     MySwal.fire({
@@ -35,7 +35,7 @@ const DashboardPage = () => {
 
   return (
     <>
-      <Dashboard handleLogOut={handleLogOut} />
+      <Dashboard handleLogOut={handleLogOut} products={products} />
     </>
   );
 };

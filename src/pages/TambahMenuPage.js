@@ -13,7 +13,11 @@ const TambahMenuPage = () => {
       return;
     }
   };
-  return <TambahMenu handleLogOut={handleLogOut} />;
+  return (
+    <>
+      <TambahMenu handleLogOut={handleLogOut} />
+    </>
+  );
 };
 
 export default TambahMenuPage;

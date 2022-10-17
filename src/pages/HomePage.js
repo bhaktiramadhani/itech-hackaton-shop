@@ -5,15 +5,15 @@ import TopProduk from "../components/home/top-produk/TopProduk";
 import Menu from "../components/home/menu/Menu";
 import Footer from "../components/home/footer/Footer";
 
-const HomePage = () => {
+const HomePage = ({ products }) => {
   return (
     <>
       <div className="container">
         <div className="hero-wrapper">
           <Navigation />
           <Hero />
-          <TopProduk />
-          <Menu />
+          <TopProduk products={products} />
+          <Menu products={products} />
           <Footer />
         </div>
       </div>

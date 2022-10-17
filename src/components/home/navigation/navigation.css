@@ -37,3 +37,9 @@ header ul li a {
   font-size: 22px;
   font-weight: bold;
 }
+
+@media (max-width: 900px) {
+  header{
+    margin: 0 50px;
+  }
+}

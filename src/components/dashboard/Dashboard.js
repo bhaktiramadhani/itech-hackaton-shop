@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./dashboard.css";
 import DashboardCard from "./DashboardCard";
 import DashboardNavbar from "./DashboardNavbar";
 import DashboardSidebar from "./DashboardSidebar";
 import { db, storage } from "../../config/firebase-config";
 import { ref, deleteObject } from "firebase/storage";
-import { collection, getDocs, updateDoc, doc } from "firebase/firestore";
+import { updateDoc, doc } from "firebase/firestore";
 import garis from "../../assets/images/garis.png";
 import DashboardFooter from "./DashboardFooter";
 import TambahMenuForm from "./tambahmenu/TambahMenuForm";
@@ -14,19 +14,9 @@ import withReactContent from "sweetalert2-react-content";
 
 export const MySwal = withReactContent(Swal);
 
-const Dashboard = ({ handleLogOut }) => {
-  const [products, setProducts] = useState([]);
+const Dashboard = ({ handleLogOut, products }) => {
   const [product, setProduct] = useState({});
   const [modal, setModal] = useState(false);
-
-  useEffect(() => {
-    const productsCollectionRef = collection(db, "products");
-    const getProducts = async () => {
-      const data = await getDocs(productsCollectionRef);
-      setProducts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-    };
-    getProducts();
-  }, []);
 
   const handleEdit = (product) => {
     document.querySelector(".validasi-form").setAttribute("hidden", true);
@@ -142,10 +132,7 @@ const Dashboard = ({ handleLogOut }) => {
             editId,
             e
           );
-        } else {
-          // document.querySelector(".modal-container").style.display = "flex";
-          return;
-        }
+        } else return;
       });
     } else {
       document.querySelector(".validasi-form").removeAttribute("hidden");
@@ -179,12 +166,23 @@ const Dashboard = ({ handleLogOut }) => {
                 <img src={garis} alt="garis" id="garis" />
                 <h3>Best Seller</h3>
               </div>
-              <div className="dashboard-menu-wrapper">
-                <DashboardCard
-                  products={products}
-                  kategori="Best Seller"
-                  handleEdit={handleEdit}
-                />
+              <div
+                className="dashboard-menu-wrapper"
+                style={{
+                  overflow: products.length ? "auto" : "visible",
+                }}
+              >
+                {products.length ? (
+                  <DashboardCard
+                    products={products}
+                    kategori="Best Seller"
+                    handleEdit={handleEdit}
+                  />
+                ) : (
+                  <div className="loader-wrapper">
+                    <span className="loader"></span>
+                  </div>
+                )}
               </div>
             </div>
             <div className="dashboard-main-kategori">
@@ -192,12 +190,23 @@ const Dashboard = ({ handleLogOut }) => {
                 <img src={garis} alt="garis" id="garis" />
                 <h3>Biasa</h3>
               </div>
-              <div className="dashboard-menu-wrapper">
-                <DashboardCard
-                  products={products}
-                  kategori="Biasa"
-                  handleEdit={handleEdit}
-                />
+              <div
+                className="dashboard-menu-wrapper"
+                style={{
+                  overflow: products.length ? "auto" : "visible",
+                }}
+              >
+                {products.length ? (
+                  <DashboardCard
+                    products={products}
+                    kategori="Biasa"
+                    handleEdit={handleEdit}
+                  />
+                ) : (
+                  <div className="loader-wrapper">
+                    <span className="loader"></span>
+                  </div>
+                )}
               </div>
             </div>
           </div>

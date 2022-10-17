@@ -1,14 +1,8 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./dashboard.css";
 
 const DashboardSidebar = () => {
-  const navLinkStyles = ({ isActive }) => {
-    return {
-      backgroundColor: isActive ? "#393a4" : "transparent",
-    };
-  };
-
   const handleCLoseSidebar = () => {
     document.querySelector(".dashboard-sidebar-wrapper").style.display = "none";
     document.querySelector(".dashboard-main").style.marginLeft = "0";
@@ -32,12 +26,28 @@ const DashboardSidebar = () => {
         <hr />
         <div className="sidebar-content">
           <ul className="sidebar-list">
-            <NavLink to="/dashboard" style={navLinkStyles}>
+            <Link
+              to="/dashboard"
+              style={{
+                backgroundColor:
+                  window.location.pathname === "/dashboard"
+                    ? "#393a4"
+                    : "transparent",
+              }}
+            >
               Dashboard
-            </NavLink>
-            <NavLink to="/tambah" style={navLinkStyles}>
+            </Link>
+            <Link
+              to="/dashboard/tambah"
+              style={{
+                backgroundColor:
+                  window.location.pathname === "/dashboard/tambah"
+                    ? "#393a4"
+                    : "transparent",
+              }}
+            >
               Tambah Menu
-            </NavLink>
+            </Link>
           </ul>
         </div>
       </div>
