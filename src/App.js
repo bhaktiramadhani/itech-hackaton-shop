@@ -1,14 +1,25 @@
 import React, { useState, useEffect } from "react";
 import HomePage from "./pages/HomePage";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import LoginPage from "./pages/LoginPage";
 import DashboardPage from "./pages/DashboardPage";
 import ProtectedAuth from "./components/protected/ProtectedAuth";
 import TambahMenuPage from "./pages/TambahMenuPage";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../src/config/firebase-config";
+import { db, auth } from "../src/config/firebase-config";
+import DetailPage from "./pages/DetailPage";
+import { onAuthStateChanged } from "firebase/auth";
+import CheckOutPage from "./pages/CheckOutPage";
 
 function App() {
+  // auth
+  const [user, setUser] = useState({});
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+  }, []);
+
   // get data from firebase
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -41,7 +52,16 @@ function App() {
           }
         />
 
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/login"
+          element={user ? <Navigate to="/dashboard" /> : <LoginPage />}
+        />
+        <Route
+          path="/product/:nama"
+          element={<DetailPage products={products} />}
+        />
+        <Route path="/checkout" element={<CheckOutPage />} />
+        <Route path="*" element={<p>404 page</p>} />
       </Routes>
     </BrowserRouter>
   );

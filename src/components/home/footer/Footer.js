@@ -6,7 +6,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <div className="footer-wrapper">
+    <div className="footer-wrapper" id="kontak">
       <h2>Hubungi Kami</h2>
       <div className="footer-content">
         <div className="footer-content-text">

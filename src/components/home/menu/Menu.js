@@ -23,7 +23,7 @@ const Menu = ({ products }) => {
     }
   }, [filters]);
   return (
-    <div className="menu-produk-container">
+    <div className="menu-produk-container" id="menu">
       <div className="menu-produk-heading">
         <h2>Menu</h2>
         <div className="menu-produk-button">
@@ -44,7 +44,12 @@ const Menu = ({ products }) => {
         {products
           .filter((check) => filters === check.kategori || filters === "Semua")
           .map((product) => (
-            <CardMenu nama={product.nama} img={product.img} key={product.id} />
+            <CardMenu
+              nama={product.nama}
+              img={product.img}
+              key={product.id}
+              id={product.id}
+            />
           ))}
       </div>
     </div>

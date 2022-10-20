@@ -1,0 +1,155 @@
+.detail-container{
+    height: 973px;
+    background-color: #1B1C23;
+}
+
+.navbar-product-container{
+    background-color: #fff;
+    height: 89px;
+    display: flex;
+}
+
+.navbar-product-container .navbar-product-button{
+    width: 90px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar-product-container img{
+    width: 32px;
+}
+
+.navbar-product-container h3{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-weight: bold;
+    color: #2B2E4A;
+}
+
+.card-detail-container{
+    background-color: #fff;
+    margin: 63px 144px 80px 145px;
+    padding: 45px 27px 50px;
+    min-height: 670px;
+    border-radius: 10px;
+    font-family: "Ubuntu", sans-serif;
+}
+
+.card-detail-content{
+    width: 100%;
+    display: flex;
+    gap: 49px;
+}
+
+.card-detail-content img{
+    width: 39.9%;
+    height: 458px;
+    border-radius: 10px;
+}
+
+.card-detail-content .detail-text{
+    margin-top: 113px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.detail-text .detail-text-menu{
+    margin-bottom: 21px;
+}
+
+.detail-text .detail-text-harga{
+    margin: 17px 0 21px;
+}
+
+.detail-text .detail-text-kategori{
+    margin: 21px 0;
+}
+
+.detail-text .detail-text-desc{
+    margin: 17px 0;
+}
+
+.detail-text .detail-text-note{
+    margin-top: 13px;
+    color: #F01717;
+    font-size: 15px;
+}
+
+.card-detail-button{
+    margin-top: 35px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.card-detail-button button{
+    font-family: "Ubuntu", sans-serif;
+}
+
+.card-detail-button .card-detail-button-tambah{
+    height: 61px;
+    background-color: #FF793F;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.card-detail-button .card-detail-button-beli{
+    height: 61px;
+    background-color: #42A742;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
+    font-weight: bold;
+}
+
+.card-detail-button .button-increment-produk{
+    background-color: #D0CCCC;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 61px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
+}
+
+.card-detail-button .button-increment-produk button:first-child{
+    height: 61px;
+    width: 81px;
+    border: none;
+    border-right: 1px solid #808080;
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.card-detail-button .button-increment-produk button:last-child{
+    height: 61px;
+    width: 81px;
+    border: none;
+    border-left: 1px solid #808080;
+    background-color: transparent;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.card-detail-button .button-increment-produk p{
+    font-size: 25px;
+    font-weight: 500;
+}
