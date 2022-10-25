@@ -4,7 +4,7 @@ import NavbarProduct from "../components/detail/NavbarProduct";
 import "../components/detail/detail.css";
 import CardDetail from "../components/detail/CardDetail";
 
-const DetailPage = ({ products }) => {
+const DetailPage = ({ products, onAdd, cartItem }) => {
   const { nama } = useParams();
   return (
     <>
@@ -19,11 +19,9 @@ const DetailPage = ({ products }) => {
               <NavbarProduct nama={product.nama} />
               <CardDetail
                 key={product.id}
-                img={product.img}
-                nama={product.nama}
-                harga={product.harga}
-                kategori={product.kategori}
-                desc={product.desc}
+                onAdd={onAdd}
+                product={product}
+                cartItem={cartItem}
               />
             </div>
           ))}

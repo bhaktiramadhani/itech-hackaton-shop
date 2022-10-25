@@ -12,6 +12,21 @@ import { onAuthStateChanged } from "firebase/auth";
 import CheckOutPage from "./pages/CheckOutPage";
 
 function App() {
+  // cart
+  const [cartItem, setCartItem] = useState([]);
+  const onAdd = (product) => {
+    const exist = cartItem.find((x) => x.id === product.id);
+    if (exist) {
+      setCartItem(
+        cartItem.map((x) =>
+          x.id === product.id ? { ...exist, qty: exist.qty + 1 } : x
+        )
+      );
+    } else {
+      setCartItem([...cartItem, { ...product, qty: 1 }]);
+    }
+  };
+
   // auth
   const [user, setUser] = useState({});
   useEffect(() => {
@@ -58,9 +73,14 @@ function App() {
         />
         <Route
           path="/product/:nama"
-          element={<DetailPage products={products} />}
+          element={
+            <DetailPage products={products} onAdd={onAdd} cartItem={cartItem} />
+          }
         />
-        <Route path="/checkout" element={<CheckOutPage />} />
+        <Route
+          path="/checkout"
+          element={<CheckOutPage cartItem={cartItem} />}
+        />
         <Route path="*" element={<p>404 page</p>} />
       </Routes>
     </BrowserRouter>

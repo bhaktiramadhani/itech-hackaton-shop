@@ -58,13 +58,17 @@
 
 .menu-produk-container .menu-produk-content .card-menu {
   min-width: 325px;
+  min-height: 307px;
   background-color: #fff;
   border-radius: 10px;
   text-align: center;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .5);
 }
 
 .menu-produk-container .menu-produk-content .card-menu img {
   width: 325px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .menu-produk-container .menu-produk-content .card-menu h3 {

@@ -1,15 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const CardDetail = ({ img, nama, harga, kategori, desc }) => {
-  const [cart, setCart] = useState([]);
-  const handleTambah = (nama, harga, e) => {
-    e.target.setAttribute("disabled", true);
-    setCart({ nama: nama, harga: harga, count: 1 });
+const CardDetail = ({ onAdd, product, cartItem }) => {
+  const navigate = useNavigate();
+  const { img, nama, harga, kategori, desc } = product;
+  const handleTambahKeranjang = (e) => {
+    onAdd(product);
     const buttonBeli = document.querySelector(".card-detail-button-beli");
     const buttonIncrement = document.querySelector(".button-increment-produk");
     buttonBeli.style.display = "block";
     buttonIncrement.style.display = "flex";
   };
+
   return (
     <div className="card-detail-container">
       <div className="card-detail-content">
@@ -31,16 +33,36 @@ const CardDetail = ({ img, nama, harga, kategori, desc }) => {
       <div className="card-detail-button">
         <button
           className="card-detail-button-tambah"
-          onClick={(e) => handleTambah(nama, harga, e)}
+          onClick={handleTambahKeranjang}
         >
           Tambahkan ke keranjang
         </button>
-        <button className="card-detail-button-beli" style={{ display: "none" }}>
+        <button
+          onClick={() => {
+            navigate("/checkout");
+            window.scrollTo(0, 0);
+          }}
+          className="card-detail-button-beli"
+          // style={{
+          //   display: cartItem.map((item) => item.id === product.id && "block"),
+          // }}
+          // hidden={cartItem.map((item) => item.id === product.id && false)}
+        >
           Beli Sekarang
         </button>
-        <div className="button-increment-produk" style={{ display: "none" }}>
+        <div
+          className="button-increment-produk"
+          // style={{
+          //   display: cartItem.map((item) => item.id === product.id && "flex"),
+          // }}
+          // hidden={cartItem.map((item) => item.id === product.id && false)}
+        >
           <button>-</button>
-          <p>{cart.count}</p>
+          <p>
+            {cartItem
+              .filter((item) => item.id === product.id)
+              .map((item) => item.qty)}
+          </p>
           <button>+</button>
         </div>
       </div>

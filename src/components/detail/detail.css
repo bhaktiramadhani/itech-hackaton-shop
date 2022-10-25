@@ -7,6 +7,7 @@
     background-color: #fff;
     height: 89px;
     display: flex;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, .5);
 }
 
 .navbar-product-container .navbar-product-button{
@@ -104,6 +105,10 @@
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
 }
 
+.card-detail-button .card-detail-button-tambah:disabled{
+    background-color: #ffa47d;
+}
+
 .card-detail-button .card-detail-button-beli{
     height: 61px;
     background-color: #42A742;
@@ -119,7 +124,6 @@
 
 .card-detail-button .button-increment-produk{
     background-color: #D0CCCC;
-    display: flex;
     justify-content: space-between;
     align-items: center;
     height: 61px;
