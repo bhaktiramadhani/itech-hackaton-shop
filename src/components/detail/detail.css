@@ -120,6 +120,7 @@
     font-size: 20px;
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
     font-weight: bold;
+    display: block;
 }
 
 .card-detail-button .button-increment-produk{
@@ -129,6 +130,7 @@
     height: 61px;
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
+    display: flex;
 }
 
 .card-detail-button .button-increment-produk button:first-child{

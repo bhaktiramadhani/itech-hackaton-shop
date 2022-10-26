@@ -77,6 +77,7 @@ const TambahMenuForm = ({
 
   const handlePrice = (e, component) => {
     function formatRupiah(angka, prefix) {
+      console.log(angka, prefix);
       var number_string = angka.replace(/[^,\d]/g, "").toString(),
         split = number_string.split(","),
         sisa = split[0].length % 3,

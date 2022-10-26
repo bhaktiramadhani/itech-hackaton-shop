@@ -26,6 +26,20 @@ function App() {
       setCartItem([...cartItem, { ...product, qty: 1 }]);
     }
   };
+  const onRemove = (product) => {
+    const ProductExist = cartItem.find((item) => item.id === product.id);
+    if (ProductExist.qty === 1) {
+      setCartItem(cartItem.filter((item) => item.id !== product.id));
+    } else {
+      setCartItem(
+        cartItem.map((item) =>
+          item.id === product.id
+            ? { ...ProductExist, qty: ProductExist.qty - 1 }
+            : item
+        )
+      );
+    }
+  };
 
   // auth
   const [user, setUser] = useState({});
@@ -79,7 +93,13 @@ function App() {
         />
         <Route
           path="/checkout"
-          element={<CheckOutPage cartItem={cartItem} />}
+          element={
+            <CheckOutPage
+              cartItem={cartItem}
+              onAdd={onAdd}
+              onRemove={onRemove}
+            />
+          }
         />
         <Route path="*" element={<p>404 page</p>} />
       </Routes>
