@@ -189,6 +189,9 @@
         width: 100%;
         border-radius: 0px;
     }
+    .navbar-product-container h3{
+        font-size: 18px;
+    }
 }
 
 @media (max-width: 450px){
