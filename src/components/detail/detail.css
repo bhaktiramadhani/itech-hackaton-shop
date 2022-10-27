@@ -1,6 +1,7 @@
 .detail-container{
-    height: 973px;
+    min-height: 973px;
     background-color: #1B1C23;
+    padding-bottom: 10px;
 }
 
 .navbar-product-container{
@@ -33,7 +34,8 @@
 
 .card-detail-container{
     background-color: #fff;
-    margin: 63px 144px 80px 145px;
+    width: 78%;
+    margin: 63px auto 145px;
     padding: 45px 27px 50px;
     min-height: 670px;
     border-radius: 10px;
@@ -53,12 +55,14 @@
 }
 
 .card-detail-content .detail-text{
+    width: 100%;
     margin-top: 113px;
     font-weight: 500;
     font-size: 20px;
 }
 
 .detail-text .detail-text-menu{
+    width: 100%;
     margin-bottom: 21px;
 }
 
@@ -158,4 +162,46 @@
 .card-detail-button .button-increment-produk p{
     font-size: 25px;
     font-weight: 500;
+}
+
+/* responsive */
+@media (max-width: 1100px){
+    .card-detail-content img{
+        width: auto;
+    }
+    .card-detail-container{
+        margin: 63px auto 10px;
+    }
+}
+
+@media (max-width: 950px){
+    .card-detail-content{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card-detail-content .detail-text{
+        margin-top: 0px;
+    }
+}
+
+@media (max-width: 650px){
+    .card-detail-container{
+        width: 100%;
+        border-radius: 0px;
+    }
+}
+
+@media (max-width: 450px){
+    .detail-text .detail-text-menu,.detail-text .detail-text-harga,
+    .detail-text .detail-text-kategori,
+    .detail-text .detail-text-desc{
+        font-size: 18px;
+    }
+    .detail-text .detail-text-note{
+        font-size: 13px;
+    }
+    .card-detail-content img{
+        width: 350px;
+    }
+    
 }

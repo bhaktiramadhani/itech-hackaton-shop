@@ -5,7 +5,7 @@
 
 .checkout-card-container{
     background-color: #fff;
-    width: 1015px;
+    width: 78%;
     min-height: 816px;
     margin: 36px auto 0;
     padding: 36px 51px 32px;
@@ -81,16 +81,18 @@
     display: flex;
     gap: 16px;
     justify-content: space-between;
+    flex-wrap: wrap;
+    width: 380px;
 }
 
 .list-product-wrapper .list-product .list-product-text{
     font-size: 20px;
     font-weight: 500;
-    
 }
 
 .list-product-wrapper .list-product p:first-child{
     font-style: italic;
+    width: 15ch;
 }
 
 .list-product-wrapper .list-product p:last-child{
@@ -104,6 +106,7 @@
     width: 139px;
     display: flex;
     justify-content: space-between;
+    align-self: center;
 }
 
 .list-product-wrapper .list-product .list-product-button button:first-child{
@@ -134,6 +137,7 @@
     display: flex;
     flex-direction: column;
     gap: 12px;
+    width: 100%
 }
 
 .list-address-wrapper h4{
@@ -180,4 +184,68 @@
     font-size: 17px;
     font-weight: 500;
     font-style: italic;
+}
+
+/* responsive */
+@media (max-width: 1100px){
+    .checkout-list-wrapper .checkout-list-content{
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+    .list-product-wrapper{
+        align-items: center;
+    }
+    .list-address-wrapper{
+        align-items: center;
+    }
+    .list-address-wrapper p{
+        text-align: center;
+    }
+}
+
+@media (max-width: 650px){
+    .checkout-card-container{
+        padding: 36px 25px;
+        width: 97%;
+    }
+    .checkout-input-wrapper label{
+        font-size: 20px;
+    }
+    .checkout-list-wrapper h3:first-child{
+        font-size: 25px;
+    }
+    .list-address-wrapper h4{
+        font-size: 25px;
+    }
+    .checkout-button-wrapper p{
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 450px){
+    .checkout-input-wrapper p{
+        margin-top: 5px;
+        font-size: 14px;
+        text-align: center;
+    }
+    .list-address-wrapper h4{
+        font-size: 20px;
+    }
+    .list-address-wrapper p{
+        font-size: 15px;
+    }
+    .list-product-wrapper .list-product{
+        width: 300px;
+    }
+    .list-product-wrapper .list-product p:first-child,.list-product-wrapper .list-product p:last-child{
+        font-size: 15px;
+    }
+    .checkout-button-wrapper p{
+        font-size: 12px;
+        text-align: center;
+        padding-top: 3px;
+    }
+    .checkout-list-wrapper h3:last-child{
+        font-size: 18px;
+    }
 }

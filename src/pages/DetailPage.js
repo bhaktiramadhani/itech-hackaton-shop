@@ -4,7 +4,7 @@ import NavbarProduct from "../components/detail/NavbarProduct";
 import "../components/detail/detail.css";
 import CardDetail from "../components/detail/CardDetail";
 
-const DetailPage = ({ products, onAdd, cartItem }) => {
+const DetailPage = ({ products, onAdd, cartItem, onRemove }) => {
   const { nama } = useParams();
   return (
     <>
@@ -22,6 +22,7 @@ const DetailPage = ({ products, onAdd, cartItem }) => {
                 onAdd={onAdd}
                 product={product}
                 cartItem={cartItem}
+                onRemove={onRemove}
               />
             </div>
           ))}

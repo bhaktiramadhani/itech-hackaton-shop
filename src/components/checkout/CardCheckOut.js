@@ -23,11 +23,6 @@ const CardCheckOut = ({ cartItem, onAdd, onRemove }) => {
   const hasil = cartItem.map((item) =>
     Number(item.harga.split("/").shift().split(" ").pop() * item.qty + "000")
   );
-  // const handleProductPesan = () => {
-  //   cartItem.map((item) => {
-  //     return `Nama pesanan: ${item.nama}\nJumlah: ${item.qty}\nHarga: ${item.harga}`;
-  //   });
-  // };
 
   const handlePesan = (e) => {
     e.preventDefault();

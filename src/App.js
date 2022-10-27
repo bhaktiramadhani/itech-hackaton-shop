@@ -88,7 +88,12 @@ function App() {
         <Route
           path="/product/:nama"
           element={
-            <DetailPage products={products} onAdd={onAdd} cartItem={cartItem} />
+            <DetailPage
+              products={products}
+              onAdd={onAdd}
+              cartItem={cartItem}
+              onRemove={onRemove}
+            />
           }
         />
         <Route

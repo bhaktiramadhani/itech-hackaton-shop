@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const CardDetail = ({ onAdd, product, cartItem }) => {
+const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
   const navigate = useNavigate();
   const { img, nama, harga, kategori, desc } = product;
   const handleTambahKeranjang = (e) => {
@@ -46,7 +46,6 @@ const CardDetail = ({ onAdd, product, cartItem }) => {
           // style={{
           //   display: cartItem.map((item) => item.id === product.id && "block"),
           // }}
-          // hidden={cartItem.map((item) => item.id === product.id && false)}
         >
           Beli Sekarang
         </button>
@@ -55,15 +54,14 @@ const CardDetail = ({ onAdd, product, cartItem }) => {
           // style={{
           //   display: cartItem.map((item) => item.id === product.id && "flex"),
           // }}
-          // hidden={cartItem.map((item) => item.id === product.id && false)}
         >
-          <button>-</button>
+          <button onClick={() => onRemove(product)}>-</button>
           <p>
             {cartItem
               .filter((item) => item.id === product.id)
               .map((item) => item.qty)}
           </p>
-          <button>+</button>
+          <button onClick={() => onAdd(product)}>+</button>
         </div>
       </div>
     </div>
