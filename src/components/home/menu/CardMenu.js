@@ -1,15 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const CardMenu = ({ img, nama, id }) => {
+const CardMenu = ({ img, nama }) => {
   const navigate = useNavigate();
   const handleMore = (nama) => {
     navigate(`/product/${nama.split(" ").join("-").toLowerCase()}`);
   };
-  console.log();
   return (
     <div className="card-menu">
-      <img src={img} alt={nama} />
+      <img src={img} alt={nama} width="325" height="379" />
       <h3>{nama}</h3>
       <button
         onClick={() => {

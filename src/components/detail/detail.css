@@ -124,7 +124,7 @@
     font-size: 20px;
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
     font-weight: bold;
-    display: block;
+    display: none;
 }
 
 .card-detail-button .button-increment-produk{
@@ -134,7 +134,7 @@
     height: 61px;
     border-radius: 10px;
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
-    display: flex;
+    display: none;
 }
 
 .card-detail-button .button-increment-produk button:first-child{
@@ -187,7 +187,6 @@
 @media (max-width: 650px){
     .card-detail-container{
         width: 100%;
-        border-radius: 0px;
     }
     .navbar-product-container h3{
         font-size: 18px;

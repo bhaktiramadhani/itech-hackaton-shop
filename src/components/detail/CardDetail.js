@@ -11,7 +11,6 @@ const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
     buttonBeli.style.display = "block";
     buttonIncrement.style.display = "flex";
   };
-
   return (
     <div className="card-detail-container">
       <div className="card-detail-content">
@@ -43,17 +42,21 @@ const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
             window.scrollTo(0, 0);
           }}
           className="card-detail-button-beli"
-          // style={{
-          //   display: cartItem.map((item) => item.id === product.id && "block"),
-          // }}
+          style={{
+            display: cartItem
+              .filter((item) => item.id === product.id)
+              .map((item) => (item ? "block" : "none")),
+          }}
         >
           Beli Sekarang
         </button>
         <div
           className="button-increment-produk"
-          // style={{
-          //   display: cartItem.map((item) => item.id === product.id && "flex"),
-          // }}
+          style={{
+            display: cartItem
+              .filter((item) => item.id === product.id)
+              .map((item) => (item ? "flex" : "none")),
+          }}
         >
           <button onClick={() => onRemove(product)}>-</button>
           <p>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ListCheckOut from "./ListCheckOut";
+import { MySwal } from "../dashboard/Dashboard";
 
 const CardCheckOut = ({ cartItem, onAdd, onRemove }) => {
   const [namaCust, setNamaCust] = useState("");
@@ -26,24 +27,31 @@ const CardCheckOut = ({ cartItem, onAdd, onRemove }) => {
 
   const handlePesan = (e) => {
     e.preventDefault();
-
-    const total = formatRupiah(
-      String(hasil.reduce((acc, curr) => acc + curr)),
-      "Rp. "
-    );
-    window.open(
-      `https://wa.me/62895362555775?text=${cartItem.map(
-        (item) =>
-          `Nama%20Pesanan%20:%20${item.nama}%0AJumlah%20:%20${
-            item.qty
-          }%0AHarga%20:%20${formatRupiah(
-            String(
-              item.harga.split("/").shift().split(" ").pop() * item.qty + "000"
-            ),
-            "Rp. "
-          )}%0A%0A`
-      )}Total%20Harga%20:%20${total}%0A%0ATanggal%20Acara%20:%20${tanggalAcara}%0A%0A*estimasi%20waktu%20selesai%202-3%20hari%20setelah%20pemesanan%0A*---------------%0ANama%20:%20${namaCust}%0ANo%20Hp%20:%20${noHpCust}%0A---------------%0APembayaran:%0ABank%20BCA(82763653628000)%0A%0A*maksimal%20pembayaran%201x24%20Jam%0A*kirim%20bukti%20pembayaran%20ke%20wa%20dan%20tunggu%20konfirmasi%20dari%0Apenjual%20maksimal%201x24%20jam`
-    );
+    if (cartItem.length !== 0) {
+      const total = formatRupiah(
+        String(hasil.reduce((acc, curr) => acc + curr)),
+        "Rp. "
+      );
+      window.open(
+        `https://wa.me/62895362555775?text=${cartItem.map(
+          (item) =>
+            `Nama%20Pesanan%20:%20${item.nama}%0AJumlah%20:%20${
+              item.qty
+            }%0AHarga%20:%20${formatRupiah(
+              String(
+                item.harga.split("/").shift().split(" ").pop() * item.qty +
+                  "000"
+              ),
+              "Rp. "
+            )}%0A%0A`
+        )}Total%20Harga%20:%20${total}%0A%0ATanggal%20Acara%20:%20${tanggalAcara}%0A%0A*estimasi%20waktu%20selesai%202-3%20hari%20setelah%20pemesanan%0A*---------------%0ANama%20:%20${namaCust}%0ANo%20Hp%20:%20${noHpCust}%0A---------------%0APembayaran:%0ABank%20BCA(82763653628000)%0A%0A*maksimal%20pembayaran%201x24%20Jam%0A*kirim%20bukti%20pembayaran%20ke%20wa%20dan%20tunggu%20konfirmasi%20dari%0Apenjual%20maksimal%201x24%20jam`
+      );
+    } else {
+      MySwal.fire({
+        icon: "info",
+        title: "Pesanan anda masih kosong!",
+      });
+    }
   };
 
   return (

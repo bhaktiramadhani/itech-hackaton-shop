@@ -9,7 +9,13 @@ const CardTopProduk = ({ products }) => {
         }
         return (
           <div className="card-produk" key={product.id}>
-            <img src={product.img} alt={product.nama} className="img-produk" />
+            <img
+              className="img-produk"
+              src={product.img}
+              alt={product.nama}
+              width="325"
+              height="379"
+            />
             <h3>{product.nama}</h3>
             <hr />
             <div className="desc-container">

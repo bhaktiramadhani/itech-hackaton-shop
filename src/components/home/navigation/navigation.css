@@ -43,3 +43,16 @@ header ul li a {
     margin: 0 50px;
   }
 }
+@media (max-width: 570px){
+  header{
+    flex-direction: column;
+    height: 75px;
+    justify-content: center;
+  }
+  header ul{
+    display: none;
+  }
+  header h1{
+    font-size: 23px;
+  }
+}

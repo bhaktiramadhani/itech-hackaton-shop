@@ -75,6 +75,7 @@
     margin: auto;
     font-size: 25px;
     font-weight: bold;
+    text-align: center;
 }
 
 .list-product-wrapper .list-product{
@@ -206,6 +207,7 @@
 @media (max-width: 650px){
     .checkout-card-container{
         padding: 36px 25px;
+        margin: 36px auto -20px;
         width: 97%;
     }
     .checkout-input-wrapper label{
