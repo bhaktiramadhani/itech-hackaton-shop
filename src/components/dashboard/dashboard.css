@@ -15,6 +15,35 @@
   flex-direction: column;
 }
 
+.dashboard-sidebar-wrapper .sidebar-top{
+  display: flex;
+  justify-content: space-between;
+  margin-left: 23px;
+}
+
+.dashboard-sidebar-wrapper .sidebar-top .sidebar-login-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.dashboard-sidebar-wrapper .sidebar-top .sidebar-login-wrapper img{
+  border-radius: 100%;
+}
+
+.dashboard-sidebar-wrapper .sidebar-top .sidebar-login-wrapper div{
+  margin-left: 11px;
+  font-family: "Ubuntu", sans-serif;
+}
+.dashboard-sidebar-wrapper .sidebar-top .sidebar-login-wrapper div p:first-child{
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.dashboard-sidebar-wrapper .sidebar-top .sidebar-login-wrapper div p:last-child{
+  font-size: 15px;
+  font-weight: bold;
+}
+
 .dashboard-sidebar-wrapper .sidebar-close {
   width: 35px;
   height: 35px;
@@ -63,10 +92,6 @@
 .dashboard-sidebar-wrapper .sidebar-content .sidebar-list a:hover {
   background-color: #555761;
 }
-
-
-
-
 
 .button-open-sidebar{
   width: 35px;
@@ -183,7 +208,6 @@
 }
 
 .dashboard-card .dashboard-card-img {
-  width: 243px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }

@@ -26,6 +26,8 @@ const DashboardCard = ({ products, kategori, handleEdit }) => {
                 src={product.img}
                 alt={product.nama}
                 className="dashboard-card-img"
+                width="243"
+                height="239"
               />
               <h4>{product.nama}</h4>
               <hr />

@@ -32,6 +32,7 @@ const CardCheckOut = ({ cartItem, onAdd, onRemove }) => {
         String(hasil.reduce((acc, curr) => acc + curr)),
         "Rp. "
       );
+      cartItem.map((item) => console.log(item));
       window.open(
         `https://wa.me/62895362555775?text=${cartItem.map(
           (item) =>

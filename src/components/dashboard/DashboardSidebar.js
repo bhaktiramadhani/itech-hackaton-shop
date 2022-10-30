@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./dashboard.css";
+import gambarAdmin from "../../assets/images/logo-admin.png";
 
 const DashboardSidebar = () => {
   const handleCLoseSidebar = () => {
@@ -20,9 +21,18 @@ const DashboardSidebar = () => {
   return (
     <>
       <div className="dashboard-sidebar-wrapper">
-        <button className="sidebar-close" onClick={handleCLoseSidebar}>
-          x
-        </button>
+        <div className="sidebar-top">
+          <div className="sidebar-login-wrapper">
+            <img src={gambarAdmin} alt="gambar admin" width="43" height="40" />
+            <div>
+              <p>Anda Log-in sebagai</p>
+              <p>Admin</p>
+            </div>
+          </div>
+          <button className="sidebar-close" onClick={handleCLoseSidebar}>
+            x
+          </button>
+        </div>
         <hr />
         <div className="sidebar-content">
           <ul className="sidebar-list">

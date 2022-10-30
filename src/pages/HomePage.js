@@ -7,14 +7,13 @@ import Footer from "../components/home/footer/Footer";
 import "./styles.css";
 
 const HomePage = ({ products }) => {
-  const handleArrow = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <>
       <div className="container">
-        <button className="arrow-button" onClick={handleArrow}></button>
+        <button
+          className="arrow-button"
+          onClick={() => window.scrollTo(0, 0)}
+        ></button>
         <div className="hero-wrapper">
           <Navigation />
           <Hero />
