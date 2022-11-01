@@ -31,10 +31,13 @@ const DashboardCard = ({ products, kategori, handleEdit }) => {
               />
               <h4>{product.nama}</h4>
               <hr />
-              <p className="dashboard-harga">Harga: {product.harga}</p>
-              <p className="dashboard-kategori">Kategori: {product.kategori}</p>
-              <p className="dashboard-desc">Deskripsi: {product.desc}</p>
-              <hr />
+              <div className="dashboard-card-text">
+                <p className="dashboard-harga">Harga: {product.harga}</p>
+                <p className="dashboard-kategori">
+                  Kategori: {product.kategori}
+                </p>
+                <p className="dashboard-desc">Deskripsi: {product.desc}</p>
+              </div>
               <DashboardCardButton id={product.id} idButton={product.id} />
             </div>
           );

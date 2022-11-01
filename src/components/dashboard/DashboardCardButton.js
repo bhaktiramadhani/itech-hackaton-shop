@@ -4,6 +4,7 @@ import titikTiga from "../../assets/images/titiktiga.svg";
 const DashboardCardButton = ({ id }) => {
   return (
     <div className="dashboard-card-button">
+      <hr />
       <img
         src={titikTiga}
         alt="titiktiga"

@@ -8,7 +8,7 @@ const CardMenu = ({ img, nama }) => {
   };
   return (
     <div className="card-menu">
-      <img src={img} alt={nama} width="325" height="379" />
+      <img src={img} alt={nama} width="307" height="248" />
       <h3>{nama}</h3>
       <button
         onClick={() => {

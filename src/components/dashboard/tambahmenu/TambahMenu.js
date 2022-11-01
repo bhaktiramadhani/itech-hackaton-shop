@@ -47,6 +47,7 @@ const TambahMenu = ({ handleLogOut }) => {
             title: "Berhasil menambahkan Product",
           });
           navigate("/dashboard");
+          window.location.reload();
           e.target.reset();
         })
         .catch((err) => {

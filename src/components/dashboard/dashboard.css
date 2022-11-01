@@ -205,6 +205,9 @@
   text-align: center;
   position: relative;
   box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .dashboard-card .dashboard-card-img {
@@ -212,12 +215,20 @@
   border-top-right-radius: 10px;
 }
 
+.dashboard-card .dashboard-card-text{
+  min-height: 70px;
+  margin-bottom: 15px;
+  padding: 0 19px;
+}
+
 .dashboard-card h4 {
+  align-self: center;
   text-align: center;
   font-size: 18px;
-  margin: 3px 0 6px 0;
+  margin: 4px 0;
   font-weight: bold;
   color: #2b2e4a;
+  width: 20ch;
 }
 
 .dashboard-card p.dashboard-harga,
@@ -225,7 +236,7 @@
 .dashboard-card p.dashboard-desc {
   font-size: 10px;
   font-weight: bold;
-  padding: 0 15px;
+  padding: 0 19px;
   font-family: "Ubuntu", sans-serif;
 }
 
@@ -242,14 +253,15 @@
 }
 
 .dashboard-card .dashboard-card-button {
-  height: 25px;
+  height: 35.6px;
   margin: 9px 0;
+  justify-self: flex-end;
 }
 
 .dashboard-card .dashboard-card-button img {
   cursor: pointer;
   width: 35px;
-  height: 25px;
+  height: 35.6px;
 }
 
 /* button card*/
