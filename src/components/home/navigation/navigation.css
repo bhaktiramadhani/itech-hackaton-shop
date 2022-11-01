@@ -38,6 +38,56 @@ header ul li a {
   font-weight: bold;
 }
 
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  height: 20px;
+  justify-content: space-between;
+  position: relative;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fef8fd;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.menu-toggle input {
+  position: absolute;
+  width: 40px;
+  height: 27px;
+  left: -5px;
+  top: -3px;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* HAMBURGER MENU ANIMATION */
+.menu-toggle span:nth-child(2) {
+  transform-origin: 0 0;
+}
+
+.menu-toggle span:nth-child(4) {
+  transform-origin: 0 100%;
+}
+
+.menu-toggle input:checked ~ span:nth-child(2) {
+  transform: rotate(45deg) translate(-1px, -1px);
+}
+
+.menu-toggle input:checked ~ span:nth-child(3) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menu-toggle input:checked ~ span:nth-child(4) {
+  transform: rotate(-45deg) translate(-1px, 0);
+}
+
 @media (max-width: 900px) {
   header{
     margin: 0 50px;
@@ -45,14 +95,37 @@ header ul li a {
 }
 @media (max-width: 570px){
   header{
-    flex-direction: column;
+    margin: 0;
+    padding: 0 50px;
     height: 75px;
-    justify-content: center;
   }
   header ul{
+    background-color: #1b1c23;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 30px;
+    padding-top: 75px;
     display: none;
+  }
+  header ul.slide{
+    display: flex;
+  }
+  header ul li{
+    text-align: center;
+  }
+
+  header ul li a{
+    font-size: 30px;
   }
   header h1{
     font-size: 23px;
+  }
+  .menu-toggle{
+    display: flex;
   }
 }

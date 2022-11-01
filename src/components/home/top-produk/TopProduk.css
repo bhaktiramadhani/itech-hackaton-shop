@@ -21,7 +21,6 @@
   align-items: center;
   justify-content: center;
   gap: 33px;
-  /* flex-wrap: wrap; */
 }
 
 .card-top-wrapper .card-produk {

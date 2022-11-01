@@ -21,7 +21,11 @@
 .hero-text-children h1 span {
   color: #ff793f;
   position: absolute;
+  display: inline-block;
   transform: translate(-22px, 25px);
+}
+.hero-text-children h1 span.text{
+  display: none;
 }
 
 .hero-text-children p {
