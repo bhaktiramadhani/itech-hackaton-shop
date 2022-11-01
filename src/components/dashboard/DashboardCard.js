@@ -20,7 +20,7 @@ const DashboardCard = ({ products, kategori, handleEdit }) => {
                 id={product.id}
                 handleEdit={handleEdit}
                 product={product}
-                imgName={product.imgNama}
+                imgNama={product.imgNama}
               />
               <img
                 src={product.img}

@@ -33,6 +33,7 @@ const DashboardCardMore = ({ id, handleEdit, product, imgNama }) => {
         title: "Berhasil dihapus",
       });
     });
+    console.log(imgNama);
     const imgRef = ref(storage, `images/${imgNama}`);
     deleteObject(imgRef)
       .then(() => alert("berhasil dihapus"))
