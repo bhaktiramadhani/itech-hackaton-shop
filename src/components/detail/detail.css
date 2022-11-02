@@ -35,6 +35,7 @@
 .card-detail-container{
     background-color: #fff;
     width: 78%;
+    max-width: 1151px;
     margin: 63px auto 145px;
     padding: 45px 27px 50px;
     min-height: 670px;
@@ -107,10 +108,11 @@
     font-size: 20px;
     font-weight: bold;
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
+    transition: .2s;
 }
 
-.card-detail-button .card-detail-button-tambah:disabled{
-    background-color: #ffa47d;
+.card-detail-button .card-detail-button-tambah:hover{
+    background-color: #ff8a57;
 }
 
 .card-detail-button .card-detail-button-beli{
@@ -124,7 +126,12 @@
     font-size: 20px;
     box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, .4);
     font-weight: bold;
+    transition: .2s;
     display: none;
+}
+
+.card-detail-button .card-detail-button-beli:hover{
+    background-color: #56ac56;
 }
 
 .card-detail-button .button-increment-produk{
@@ -146,6 +153,8 @@
     font-size: 30px;
     font-weight: 500;
     cursor: pointer;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 
 .card-detail-button .button-increment-produk button:last-child{
@@ -157,6 +166,13 @@
     font-size: 30px;
     font-weight: 500;
     cursor: pointer;
+    transition: .2s;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.card-detail-button .button-increment-produk button:last-child:hover,.card-detail-button .button-increment-produk button:first-child:hover{
+    background-color: #dbdada;
 }
 
 .card-detail-button .button-increment-produk p{

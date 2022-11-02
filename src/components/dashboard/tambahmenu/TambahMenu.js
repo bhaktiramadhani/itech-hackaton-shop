@@ -59,27 +59,39 @@ const TambahMenu = ({ handleLogOut }) => {
   };
 
   const handleRemove = () => {
-    const checkDelete = window.confirm("apakah anda yakin untuk menghapus?");
-    if (checkDelete) {
-      const imgRef = ref(storage, `images/${imgFile.name}`);
-      deleteObject(imgRef)
-        .then(() => alert("berhasil dihapus"))
-        .catch((err) => console.log(err));
+    MySwal.fire({
+      icon: "warning",
+      title: "Hapus Foto",
+      text: "Apakah Kamu yakin untuk menghapus?",
+      showCancelButton: true,
+      cancelButtonColor: "#d33",
+      confirmButtonColor: "#3085d6",
+      confirmButtonText: "Hapus",
+      cancelButtonText: "Tidak",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const imgRef = ref(storage, `images/${imgFile.name}`);
+        deleteObject(imgRef)
+          .then(() => alert("berhasil dihapus"))
+          .catch((err) => console.log(err));
 
-      const buttonFile = document.getElementById("button-file");
-      buttonFile.style.display = "none";
-      const textFile = document.getElementById("text-file");
-      textFile.style.display = "block";
-      const fotoProduk = document.querySelector(".foto-produk");
-      fotoProduk.style.width = "100%";
-      fotoProduk.style.height = "156px";
-      setImgUrl("");
-      const images = document.getElementById("img-file");
-      images.setAttribute("hidden", "");
-      document.getElementById("input-file-img").value = "";
-      const inputanImg = document.getElementById("input-file-img");
-      inputanImg.removeAttribute("hidden");
-    } else return;
+        const buttonFile = document.getElementById("button-file");
+        buttonFile.style.display = "none";
+        const textFile = document.getElementById("text-file");
+        textFile.style.display = "block";
+        const fotoProduk = document.querySelector(".foto-produk");
+        fotoProduk.style.width = "100%";
+        fotoProduk.style.height = "156px";
+        setImgUrl("");
+        const images = document.getElementById("img-file");
+        images.setAttribute("hidden", "");
+        document.getElementById("input-file-img").value = "";
+        const inputanImg = document.getElementById("input-file-img");
+        inputanImg.removeAttribute("hidden");
+      } else {
+        return;
+      }
+    });
   };
 
   useEffect(() => {

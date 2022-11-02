@@ -7,7 +7,7 @@ const TopProduk = ({ products }) => {
     <div className="top-produk-container">
       <h2>Best Seller</h2>
       <div className="card-top-wrapper">
-        {products.length ? (
+        {products.length > 0 ? (
           <CardTopProduk products={products} />
         ) : (
           <div className="loader-wrapper-top-produk">

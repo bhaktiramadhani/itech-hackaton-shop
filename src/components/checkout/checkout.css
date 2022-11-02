@@ -6,6 +6,7 @@
 .checkout-card-container{
     background-color: #fff;
     width: 78%;
+    max-width: 1015px;
     min-height: 816px;
     margin: 36px auto 0;
     padding: 36px 51px 32px;
@@ -177,6 +178,11 @@
     font-weight: bold;
     box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .5);
     cursor: pointer;
+    transition: .2s;
+}
+
+.checkout-button-wrapper button:hover{
+    background-color: #56ac56;
 }
 
 .checkout-button-wrapper p{

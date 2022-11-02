@@ -65,12 +65,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .5);
 }
 
 .menu-produk-container .menu-produk-content .card-menu img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  object-fit: cover;
 }
 
 .menu-produk-container .menu-produk-content .card-menu h3 {
@@ -92,6 +94,11 @@
   font-weight: bold;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .5);
   cursor: pointer;
+  transition: .2s;
+}
+
+.menu-produk-container .menu-produk-content .card-menu button:hover{
+  background-color: #ff8a57;
 }
 
 /* responsive */
