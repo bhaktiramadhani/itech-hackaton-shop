@@ -104,11 +104,15 @@
 /* responsive */
 @media (max-width: 1340px){
   .menu-produk-container{
-    padding: 20px 10px;
+    padding: 20px 10px 141px;
   }
 }
 
 @media (max-width: 450px){
+  .menu-produk-container{
+    padding-bottom: 141px;
+
+  }
   .menu-produk-container .menu-produk-heading h2{
     font-size: 25px;
   }

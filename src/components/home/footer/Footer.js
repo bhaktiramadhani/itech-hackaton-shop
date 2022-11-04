@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <p id="footer-copyright">©2022-2022 --------, All Rights Reserved.</p>
+      <p id="footer-copyright">©2022-2022 WarungAcil, All Rights Reserved.</p>
     </div>
   );
 };
