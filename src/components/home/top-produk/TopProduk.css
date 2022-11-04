@@ -1,7 +1,7 @@
 .top-produk-container {
   min-height: 676px;
   background-color: #1b1c23;
-  padding: 25px 150px 86px;
+  padding: 25px 150px 64.5px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +21,8 @@
   align-items: center;
   justify-content: center;
   gap: 33px;
+  overflow-x: auto;
+  padding-bottom: 21.5px;
 }
 
 .card-top-wrapper .card-produk {
