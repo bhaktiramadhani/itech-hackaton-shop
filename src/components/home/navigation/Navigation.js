@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./navigation.css";
+import LogoNavigation from "../../../assets/images/logo-nav-home.svg";
 
 const Navigation = () => {
   const [linked, setLinked] = useState(null);
@@ -12,9 +13,12 @@ const Navigation = () => {
   return (
     <div className="header-container">
       <header>
-        <h1>
-          Warung<span>Acil</span>
-        </h1>
+        <img
+          src={LogoNavigation}
+          alt="logo warung acil"
+          width="173"
+          height="55"
+        />
         <div>
           <ul id="nav">
             <li>

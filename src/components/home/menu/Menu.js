@@ -41,16 +41,24 @@ const Menu = ({ products }) => {
         </div>
       </div>
       <div className="menu-produk-content">
-        {products
-          .filter((check) => filters === check.kategori || filters === "Semua")
-          .map((product) => (
-            <CardMenu
-              nama={product.nama}
-              img={product.img}
-              key={product.id}
-              id={product.id}
-            />
-          ))}
+        {products.length > 0 ? (
+          products
+            .filter(
+              (check) => filters === check.kategori || filters === "Semua"
+            )
+            .map((product) => (
+              <CardMenu
+                nama={product.nama}
+                img={product.img}
+                key={product.id}
+                id={product.id}
+              />
+            ))
+        ) : (
+          <div className="loader-wrapper-top-produk">
+            <span className="loader-top-produk"></span>
+          </div>
+        )}
       </div>
     </div>
   );

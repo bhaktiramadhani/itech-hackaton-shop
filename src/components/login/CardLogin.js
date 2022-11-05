@@ -4,6 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import "./cardlogin.css";
 import { useNavigate } from "react-router-dom";
 import { MySwal } from "../dashboard/Dashboard";
+import LogoLogin from "../../assets/images/logo-login.png";
 
 const CardLogin = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -51,7 +52,7 @@ const CardLogin = () => {
     <div className="card-wrapper-container">
       <div className="card-wrapper">
         <div className="card-heading">
-          <h2>Masuk</h2>
+          <img src={LogoLogin} alt="Logo Login" width="269" height="230" />
         </div>
 
         <form onSubmit={handleLogin}>
@@ -61,6 +62,7 @@ const CardLogin = () => {
             onChange={(event) => setLoginEmail(event.target.value)}
             placeholder="...@gmail.com"
             value={loginEmail}
+            required
           />
           <label>Password</label>
           <input
@@ -68,6 +70,7 @@ const CardLogin = () => {
             onChange={(event) => setLoginPassword(event.target.value)}
             value={loginPassword}
             placeholder="Isi password pian..."
+            required
           />
           <button
             type="submit"
@@ -76,22 +79,6 @@ const CardLogin = () => {
           >
             Masuk
           </button>
-          <p>
-            Lupa
-            <button
-              className="forget-password"
-              onClick={(e) => {
-                e.preventDefault();
-                MySwal.fire({
-                  icon: "info",
-                  title: "Silahkan hubungi developer",
-                });
-              }}
-            >
-              Password
-            </button>{" "}
-            ?
-          </p>
         </form>
       </div>
     </div>

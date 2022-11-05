@@ -54,7 +54,10 @@ const TambahMenu = ({ handleLogOut }) => {
           console.log(err);
         });
     } else {
-      document.querySelector(".validasi-form").removeAttribute("hidden");
+      MySwal.fire({
+        icon: "info",
+        title: "isi semua terlebih dahulu...",
+      });
     }
   };
 
@@ -72,7 +75,12 @@ const TambahMenu = ({ handleLogOut }) => {
       if (result.isConfirmed) {
         const imgRef = ref(storage, `images/${imgFile.name}`);
         deleteObject(imgRef)
-          .then(() => alert("berhasil dihapus"))
+          .then(() =>
+            MySwal.fire({
+              icon: "success",
+              title: "Berhasil menghapus",
+            })
+          )
           .catch((err) => console.log(err));
 
         const buttonFile = document.getElementById("button-file");
@@ -80,7 +88,7 @@ const TambahMenu = ({ handleLogOut }) => {
         const textFile = document.getElementById("text-file");
         textFile.style.display = "block";
         const fotoProduk = document.querySelector(".foto-produk");
-        fotoProduk.style.width = "100%";
+        fotoProduk.style.width = "400px";
         fotoProduk.style.height = "156px";
         setImgUrl("");
         const images = document.getElementById("img-file");
@@ -88,6 +96,9 @@ const TambahMenu = ({ handleLogOut }) => {
         document.getElementById("input-file-img").value = "";
         const inputanImg = document.getElementById("input-file-img");
         inputanImg.removeAttribute("hidden");
+        const text = document.getElementById("text-file");
+        text.style.fontSize = "21px";
+        text.innerHTML = "Upload Disini";
       } else {
         return;
       }
@@ -96,7 +107,6 @@ const TambahMenu = ({ handleLogOut }) => {
 
   useEffect(() => {
     const uploadFile = () => {
-      console.log(imgFile.name);
       const storageRef = ref(storage, `images/${imgFile.name}`);
       const uploadTask = uploadBytesResumable(storageRef, imgFile);
 
@@ -105,7 +115,11 @@ const TambahMenu = ({ handleLogOut }) => {
         (snapshot) => {
           const progress =
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-          console.log(progress);
+          if (progress > 1) {
+            const text = document.getElementById("text-file");
+            text.style.fontSize = "40px";
+            text.innerHTML = "loading...";
+          }
         },
         (error) => {
           console.log(error);

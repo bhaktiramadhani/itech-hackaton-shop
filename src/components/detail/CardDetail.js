@@ -20,7 +20,9 @@ const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
           <hr />
           <p className="detail-text-harga">Harga: {harga}</p>
           <hr />
-          <p className="detail-text-kategori">Kategori: {kategori}</p>
+          <p className="detail-text-kategori">
+            Kategori:<span>{kategori}</span>
+          </p>
           <hr />
           <p className="detail-text-desc">Deskripsi: {desc}</p>
           <hr />

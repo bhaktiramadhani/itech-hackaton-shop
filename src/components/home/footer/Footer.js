@@ -43,7 +43,11 @@ const Footer = () => {
         </div>
       </div>
       <hr />
-      <p id="footer-copyright">©2022-2022 WarungAcil, All Rights Reserved.</p>
+      <p id="footer-copyright">
+        <span style={{ fontWeight: "bold" }}>©2022-2022 Warung</span>
+        <span style={{ color: "#FF793F", fontWeight: "bold" }}>Acil</span>. All
+        Rights Reserved.
+      </p>
     </div>
   );
 };

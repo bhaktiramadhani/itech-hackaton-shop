@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./dashboard.css";
-import gambarAdmin from "../../assets/images/logo-admin.png";
+import gambarAdmin from "../../assets/images/logo-admin.svg";
 
 const DashboardSidebar = () => {
   const handleCLoseSidebar = () => {
@@ -23,7 +23,7 @@ const DashboardSidebar = () => {
       <div className="dashboard-sidebar-wrapper">
         <div className="sidebar-top">
           <div className="sidebar-login-wrapper">
-            <img src={gambarAdmin} alt="gambar admin" width="43" height="40" />
+            <img src={gambarAdmin} alt="gambar admin" width="43" height="41" />
             <div>
               <p>Anda Log-in sebagai</p>
               <p>Admin</p>

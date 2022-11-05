@@ -12,18 +12,6 @@ header {
   position: fixed;
 }
 
-header h1 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #1b1c23;
-}
-
-header h1 span {
-  color: #ff793f;
-  position: absolute;
-  transform: translate(-11px, 14px);
-}
-
 header ul {
   list-style-type: none;
   display: flex;
@@ -122,9 +110,7 @@ header ul li a {
   header ul li a{
     font-size: 30px;
   }
-  header h1{
-    font-size: 23px;
-  }
+
   .menu-toggle{
     display: flex;
   }

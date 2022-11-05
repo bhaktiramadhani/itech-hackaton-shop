@@ -15,6 +15,7 @@ const TambahMenuForm = ({
   dashboard,
   product,
   handleRemove,
+  setModal,
 }) => {
   const [editImgUrl, setEditImgUrl] = useState("");
   const [editNama, setEditNama] = useState("");
@@ -115,6 +116,17 @@ const TambahMenuForm = ({
       }
       style={dashboard && { margin: 0 }}
     >
+      {dashboard && (
+        <button
+          className="close-modal-dashboard"
+          onClick={() => {
+            setModal(false);
+          }}
+          type="button"
+        >
+          X
+        </button>
+      )}
       <div className="one-wrapper">
         <div className="one-produk-wrapper">
           <label>Foto Produk</label>
@@ -226,9 +238,6 @@ const TambahMenuForm = ({
           value={dashboard && editDesc}
         />
       </div>
-      <p className="validasi-form" hidden>
-        ISI SEMUA TERLEBIH DAHULU
-      </p>
       <button type="submit" id="upload-produk">
         {dashboard ? "Edit" : "Upload"}
       </button>

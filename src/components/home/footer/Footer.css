@@ -115,9 +115,6 @@
   }
 }
 @media (max-width: 410px){
-  .footer-wrapper .footer-content .footer-maps{
-    /* width: 80%; */
-  }
   .footer-wrapper .footer-content .footer-maps iframe{
     width: 100%;
   }

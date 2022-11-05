@@ -19,7 +19,6 @@ const Dashboard = ({ handleLogOut, products }) => {
   const [modal, setModal] = useState(false);
 
   const handleEdit = (product) => {
-    document.querySelector(".validasi-form").setAttribute("hidden", true);
     document.querySelector(".modal-container").style.display = "flex";
     setModal(true);
     const harga = product.harga.split("/").shift();
@@ -163,6 +162,7 @@ const Dashboard = ({ handleLogOut, products }) => {
             product={product}
             handleRemoveDashboard={handleRemoveDashboard}
             handleSubmitDashboard={handleSubmitDashboard}
+            setModal={setModal}
           />
         </div>
       </div>

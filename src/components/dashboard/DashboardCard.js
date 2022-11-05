@@ -16,12 +16,6 @@ const DashboardCard = ({ products, kategori, handleEdit }) => {
               key={product.id}
               style={{ zIndex: 999 }}
             >
-              <DashboardCardMore
-                id={product.id}
-                handleEdit={handleEdit}
-                product={product}
-                imgNama={product.imgNama}
-              />
               <img
                 src={product.img}
                 alt={product.nama}
@@ -38,7 +32,12 @@ const DashboardCard = ({ products, kategori, handleEdit }) => {
                 </p>
                 <p className="dashboard-desc">Deskripsi: {product.desc}</p>
               </div>
-              <DashboardCardButton id={product.id} idButton={product.id} />
+              <DashboardCardMore
+                id={product.id}
+                handleEdit={handleEdit}
+                product={product}
+                imgNama={product.imgNama}
+              />
             </div>
           );
         })
