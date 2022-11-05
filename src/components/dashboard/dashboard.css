@@ -11,8 +11,8 @@
   width: 295px;
   height: 100vh;
   position: fixed;
-  display: none;
   flex-direction: column;
+  display: flex;
 }
 
 .dashboard-sidebar-wrapper .sidebar-top{
@@ -108,8 +108,8 @@
   background-color: #1b1c23;
   position: fixed;
   top: 15%;
-  display: none;
   z-index: 9999;
+  display: none;
 }
 /* sidebar close */
 
@@ -154,7 +154,7 @@
 
 /* dashboard main */
 .dashboard-main {
-  margin-left: 0px;
+  margin-left: 295px;
   background-color: #d9d9d9;
 }
 
