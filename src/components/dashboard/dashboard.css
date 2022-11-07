@@ -127,7 +127,26 @@
   margin: 9px 0 10px 22px;
 }
 
-.dashboard-navbar-wrapper .button-logout {
+.link-dashboard-wrapper{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.link-dashboard-wrapper a{
+  text-decoration: none;
+  background-color: #FF793F;
+  padding: 8px 12px;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+}
+
+.link-dashboard-wrapper a:hover{
+  background-color: #fa8958;
+}
+
+.link-dashboard-wrapper .button-logout {
   border: none;
   outline: none;
   margin-right: 31px;
@@ -640,6 +659,10 @@
     display: block;
   }
 
+  .dashboard-main{
+    margin-left: 0;
+  }
+
   .dashboard-main-wrapper .dashboard-main-kategori .heading-main-kategori{
     margin: 0 0 11px 0;
   }
@@ -654,6 +677,11 @@
     width: 100vw;
     height: 100%;
     z-index: 9999;
+    display: none;
+  }
+
+  .button-open-sidebar{
+    display: block;
   }
 
   /* tambah-menu */

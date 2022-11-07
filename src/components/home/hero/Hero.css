@@ -13,6 +13,11 @@
   flex-direction: column;
 }
 
+.hero-text-children img{
+  width: 390px;
+  height: 134px;
+}
+
 .hero-text-children p {
   letter-spacing: -0.5px;
   font-size: 24.5px;
@@ -66,5 +71,16 @@
   .hero-text-children .hero-button{
     margin-top: 20px;
     align-self: center;
+  }
+}
+
+@media (max-width: 420px){
+  .hero-text-children img{
+    width: 280px;
+    align-self: center;
+  }
+
+  .hero-text-children p{
+    text-align: center;
   }
 }

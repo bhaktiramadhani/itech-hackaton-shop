@@ -1,24 +1,25 @@
 import React, { useState } from "react";
 import "./navigation.css";
 import LogoNavigation from "../../../assets/images/logo-nav-home.svg";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   const [linked, setLinked] = useState(null);
   const handleHamburger = () => {
     const ul = document.querySelector("#nav");
-    const text = document.querySelector(".hero-text-children h1 span");
     ul.classList.toggle("slide");
-    text.classList.toggle("text");
   };
   return (
     <div className="header-container">
       <header>
-        <img
-          src={LogoNavigation}
-          alt="logo warung acil"
-          width="173"
-          height="55"
-        />
+        <Link to="/" className="logo-home">
+          <img
+            src={LogoNavigation}
+            alt="logo warung acil"
+            width="173"
+            height="55"
+          />
+        </Link>
         <div>
           <ul id="nav">
             <li>
@@ -48,8 +49,11 @@ const Navigation = () => {
                 Kontak
               </a>
             </li>
+            <li>
+              <Link to="/login">Admin</Link>
+            </li>
           </ul>
-          <div class="menu-toggle">
+          <div className="menu-toggle">
             <input type="checkbox" onClick={handleHamburger} />
             <span></span>
             <span></span>

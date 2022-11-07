@@ -5,6 +5,7 @@ import "./cardlogin.css";
 import { useNavigate } from "react-router-dom";
 import { MySwal } from "../dashboard/Dashboard";
 import LogoLogin from "../../assets/images/logo-login.png";
+import { Link } from "react-router-dom";
 
 const CardLogin = () => {
   const [loginEmail, setLoginEmail] = useState("");
@@ -52,7 +53,9 @@ const CardLogin = () => {
     <div className="card-wrapper-container">
       <div className="card-wrapper">
         <div className="card-heading">
-          <img src={LogoLogin} alt="Logo Login" width="269" height="230" />
+          <Link to="/">
+            <img src={LogoLogin} alt="Logo Login" width="269" height="230" />
+          </Link>
         </div>
 
         <form onSubmit={handleLogin}>
