@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { storage } from "../../../config/firebase-config";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { MySwal } from "../Dashboard";
 
 const TambahMenuForm = ({
   handleSubmit,
@@ -153,11 +154,24 @@ const TambahMenuForm = ({
             </p>
             <input
               type="file"
-              onChange={(e) =>
-                dashboard
-                  ? setEditImgNama(e.target.files[0])
-                  : setImgFile(e.target.files[0])
-              }
+              onChange={(e) => {
+                const fileExtension = e.target.files[0].name
+                  .split(".")
+                  .pop()
+                  .toLowerCase();
+
+                if (fileExtension !== "jpg" && fileExtension !== "png") {
+                  e.target.value = null;
+                  MySwal.fire({
+                    icon: "error",
+                    title: "file harus jpg atau png",
+                  });
+                } else {
+                  dashboard
+                    ? setEditImgNama(e.target.files[0])
+                    : setImgFile(e.target.files[0]);
+                }
+              }}
               id="input-file-img"
               hidden={dashboard ? true : false}
             />
