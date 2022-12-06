@@ -65,7 +65,7 @@ const CardLogin = () => {
             onChange={(event) => setLoginEmail(event.target.value)}
             placeholder="...@gmail.com"
             value={loginEmail}
-            required
+            required={true}
           />
           <label>Password</label>
           <input
@@ -73,13 +73,9 @@ const CardLogin = () => {
             onChange={(event) => setLoginPassword(event.target.value)}
             value={loginPassword}
             placeholder="Isi password pian..."
-            required
+            required={true}
           />
-          <button
-            type="submit"
-            id="login-button"
-            disabled={loginEmail && loginPassword ? false : true}
-          >
+          <button type="submit" id="login-button">
             Masuk
           </button>
         </form>
