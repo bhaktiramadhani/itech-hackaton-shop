@@ -98,6 +98,22 @@ const TambahMenuForm = ({
       setHarga(e.target.value);
     }
   };
+
+  const handleChangeFile = (e) => {
+    const fileExtension = e.target.files[0].name.split(".").pop().toLowerCase();
+
+    if (fileExtension !== "jpg" && fileExtension !== "png") {
+      e.target.value = null;
+      MySwal.fire({
+        icon: "error",
+        title: "file harus jpg atau png",
+      });
+    } else {
+      dashboard
+        ? setEditImgNama(e.target.files[0])
+        : setImgFile(e.target.files[0]);
+    }
+  };
   return (
     <form
       className="tambah-input-wrapper"
@@ -154,24 +170,7 @@ const TambahMenuForm = ({
             </p>
             <input
               type="file"
-              onChange={(e) => {
-                const fileExtension = e.target.files[0].name
-                  .split(".")
-                  .pop()
-                  .toLowerCase();
-
-                if (fileExtension !== "jpg" && fileExtension !== "png") {
-                  e.target.value = null;
-                  MySwal.fire({
-                    icon: "error",
-                    title: "file harus jpg atau png",
-                  });
-                } else {
-                  dashboard
-                    ? setEditImgNama(e.target.files[0])
-                    : setImgFile(e.target.files[0]);
-                }
-              }}
+              onChange={(e) => handleChangeFile(e)}
               id="input-file-img"
               hidden={dashboard ? true : false}
             />

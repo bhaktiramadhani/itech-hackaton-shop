@@ -6,7 +6,9 @@ import "./checkout.css";
 const CheckOut = ({ cartItem, onAdd, onRemove }) => {
   return (
     <div className="checkout-container">
-      <NavbarProduct nama="Data Pembelian" />
+      <div className="navbar-product-container">
+        <NavbarProduct nama="Data Pembelian" cartItem={cartItem} />
+      </div>
       <CardCheckOut cartItem={cartItem} onAdd={onAdd} onRemove={onRemove} />
     </div>
   );

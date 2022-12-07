@@ -1,11 +1,13 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import arrow from "../../assets/images/Arrow.png";
+import "./detail.css";
 
 const NavbarProduct = ({ nama }) => {
   const navigate = useNavigate();
+
   return (
-    <div className="navbar-product-container">
+    <>
       <button
         className="navbar-product-button"
         onClick={() => {
@@ -16,7 +18,7 @@ const NavbarProduct = ({ nama }) => {
       </button>
       <hr />
       <h3>{nama}</h3>
-    </div>
+    </>
   );
 };
 
