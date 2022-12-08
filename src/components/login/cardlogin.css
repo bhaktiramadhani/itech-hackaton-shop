@@ -69,6 +69,10 @@
   outline: 1px solid #ff793f;
 }
 
+.card-wrapper form a{
+  margin-top: 8px;
+}
+
 
 .card-wrapper form p {
   font-weight: bold;

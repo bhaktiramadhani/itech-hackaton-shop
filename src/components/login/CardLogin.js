@@ -78,6 +78,7 @@ const CardLogin = () => {
           <button type="submit" id="login-button">
             Masuk
           </button>
+          <Link to="/">kembali ke halaman utama</Link>
         </form>
       </div>
     </div>

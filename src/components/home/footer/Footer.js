@@ -30,14 +30,12 @@ const Footer = () => {
         </div>
         <div className="footer-maps">
           <iframe
-            style={{
-              border: "0",
-            }}
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2368.348455150169!2d114.57958580360506!3d-3.332524926490352!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2de4217dbc3f6e2b%3A0xbeca59ad87a3a885!2sEka%20Bakso!5e0!3m2!1sid!2sus!4v1664077243191!5m2!1sid!2sus"
+            style={{ border: "0" }}
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1760.6180229558422!2d114.56846158843085!3d-3.347360698101017!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x42bc318f9db555ad!2zM8KwMjAnNDkuOCJTIDExNMKwMzQnMDkuNCJF!5e0!3m2!1sid!2sid!4v1670490201931!5m2!1sid!2sid"
             width="390"
             height="215"
             loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
+            referrerpolicy="no-referrer-when-downgrade"
             title="maps"
           ></iframe>
         </div>
