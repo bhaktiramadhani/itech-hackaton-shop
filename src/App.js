@@ -51,6 +51,8 @@ function App() {
 
   // get data from firebase
   const [products, setProducts] = useState([]);
+  const [searchProducts, setSerchProducts] = useState([]);
+  const [searchTitle, setSearchTitle] = useState("");
   useEffect(() => {
     const productsCollectionRef = collection(db, "products");
     const getProducts = async () => {
@@ -59,6 +61,8 @@ function App() {
     };
     getProducts();
   }, []);
+
+  console.log(products);
   return (
     <BrowserRouter>
       <Routes>
@@ -67,7 +71,12 @@ function App() {
           path="/dashboard"
           element={
             <ProtectedAuth>
-              <DashboardPage products={products} />
+              <DashboardPage
+                products={searchTitle.length > 0 ? searchProducts : products}
+                setSerchProducts={setSerchProducts}
+                setSearchTitle={setSearchTitle}
+                user={user}
+              />
             </ProtectedAuth>
           }
         />
@@ -76,7 +85,7 @@ function App() {
           path="/dashboard/tambah"
           element={
             <ProtectedAuth>
-              <TambahMenuPage products={products} />
+              <TambahMenuPage products={products} user={user} />
             </ProtectedAuth>
           }
         />
@@ -93,6 +102,7 @@ function App() {
               onAdd={onAdd}
               cartItem={cartItem}
               onRemove={onRemove}
+              user={user}
             />
           }
         />

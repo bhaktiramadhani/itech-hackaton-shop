@@ -14,7 +14,7 @@ import { addDoc, collection } from "firebase/firestore";
 import TambahMenuForm from "./TambahMenuForm";
 import { MySwal } from "../Dashboard";
 
-const TambahMenu = ({ handleLogOut }) => {
+const TambahMenu = ({ handleLogOut, user }) => {
   const [imgFile, setImgFile] = useState(null);
   const [imgUrl, setImgUrl] = useState("");
   const navigate = useNavigate();
@@ -148,7 +148,7 @@ const TambahMenu = ({ handleLogOut }) => {
 
   return (
     <div className="dashboard-container">
-      <DashboardSidebar />
+      <DashboardSidebar user={user} />
       <div className="dashboard-main">
         <DashboardNavbar handleLogOut={handleLogOut} />
         <div className="tambah-wrapper">

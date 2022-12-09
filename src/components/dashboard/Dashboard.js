@@ -11,10 +11,17 @@ import DashboardFooter from "./DashboardFooter";
 import TambahMenuForm from "./tambahmenu/TambahMenuForm";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import DashboardSearch from "./DashboardSearch";
 
 export const MySwal = withReactContent(Swal);
 
-const Dashboard = ({ handleLogOut, products }) => {
+const Dashboard = ({
+  handleLogOut,
+  products,
+  setSerchProducts,
+  setSearchTitle,
+  user,
+}) => {
   const [product, setProduct] = useState({});
   const [modal, setModal] = useState(false);
 
@@ -149,6 +156,8 @@ const Dashboard = ({ handleLogOut, products }) => {
     }
   };
 
+  console.log(products.length);
+
   return (
     <div className="dashboard-container">
       <div
@@ -166,9 +175,14 @@ const Dashboard = ({ handleLogOut, products }) => {
           />
         </div>
       </div>
-      <DashboardSidebar />
+      <DashboardSidebar user={user} />
       <div className="dashboard-main">
         <DashboardNavbar handleLogOut={handleLogOut} />
+        <DashboardSearch
+          products={products}
+          setSerchProducts={setSerchProducts}
+          setSearchTitle={setSearchTitle}
+        />
         <div className="dashboard-main-wrapper">
           <h2>Dashboard</h2>
           <div className="dashboard-main-kategori-container">
@@ -183,16 +197,12 @@ const Dashboard = ({ handleLogOut, products }) => {
                   overflow: products.length ? "auto" : "visible",
                 }}
               >
-                {products.length ? (
+                {products.length > 0 && (
                   <DashboardCard
                     products={products}
                     kategori="Best Seller"
                     handleEdit={handleEdit}
                   />
-                ) : (
-                  <div className="loader-wrapper">
-                    <span className="loader"></span>
-                  </div>
                 )}
               </div>
             </div>
@@ -207,16 +217,12 @@ const Dashboard = ({ handleLogOut, products }) => {
                   overflow: products.length ? "auto" : "visible",
                 }}
               >
-                {products.length ? (
+                {products.length > 0 && (
                   <DashboardCard
                     products={products}
                     kategori="Biasa"
                     handleEdit={handleEdit}
                   />
-                ) : (
-                  <div className="loader-wrapper">
-                    <span className="loader"></span>
-                  </div>
                 )}
               </div>
             </div>

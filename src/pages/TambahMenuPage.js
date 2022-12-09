@@ -3,7 +3,7 @@ import TambahMenu from "../components/dashboard/tambahmenu/TambahMenu";
 import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase-config";
 
-const TambahMenuPage = () => {
+const TambahMenuPage = ({ user }) => {
   const handleLogOut = async () => {
     const check = window.confirm("apakah anda yakin untuk keluar?");
     if (check) {
@@ -15,7 +15,7 @@ const TambahMenuPage = () => {
   };
   return (
     <>
-      <TambahMenu handleLogOut={handleLogOut} />
+      <TambahMenu handleLogOut={handleLogOut} user={user} />
     </>
   );
 };

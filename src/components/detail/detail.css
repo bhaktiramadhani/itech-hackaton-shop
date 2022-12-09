@@ -152,6 +152,10 @@
     background-color: #ff8a57;
 }
 
+.card-detail-button-tambah:disabled{
+    background-color: #ff8a57;
+}
+
 .card-detail-button .card-detail-button-beli{
     height: 61px;
     background-color: #42A742;

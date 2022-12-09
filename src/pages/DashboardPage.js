@@ -4,7 +4,12 @@ import { auth } from "../config/firebase-config";
 import { signOut } from "firebase/auth";
 import { MySwal } from "../components/dashboard/Dashboard";
 
-const DashboardPage = ({ products }) => {
+const DashboardPage = ({
+  products,
+  setSerchProducts,
+  setSearchTitle,
+  user,
+}) => {
   const logOut = async () => {
     await signOut(auth);
     MySwal.fire({
@@ -35,7 +40,13 @@ const DashboardPage = ({ products }) => {
 
   return (
     <>
-      <Dashboard handleLogOut={handleLogOut} products={products} />
+      <Dashboard
+        handleLogOut={handleLogOut}
+        products={products}
+        setSerchProducts={setSerchProducts}
+        setSearchTitle={setSearchTitle}
+        user={user}
+      />
     </>
   );
 };

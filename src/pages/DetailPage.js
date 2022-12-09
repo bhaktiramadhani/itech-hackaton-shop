@@ -6,9 +6,10 @@ import CardDetail from "../components/detail/CardDetail";
 import CartLogo from "../assets/images/Keranjang.svg";
 import ModalCart from "../components/detail/ModalCart";
 
-const DetailPage = ({ products, onAdd, cartItem, onRemove }) => {
+const DetailPage = ({ products, onAdd, cartItem, onRemove, user }) => {
   const { nama } = useParams();
   const [modal, setModal] = useState(false);
+  const [buying, setBuying] = useState(false);
 
   const handleCart = () => {
     setModal(!modal);
@@ -27,6 +28,8 @@ const DetailPage = ({ products, onAdd, cartItem, onRemove }) => {
               onAdd={onAdd}
               onRemove={onRemove}
               setModal={setModal}
+              setBuying={setBuying}
+              buying={buying}
             />
           </div>
         </div>
@@ -39,7 +42,10 @@ const DetailPage = ({ products, onAdd, cartItem, onRemove }) => {
             <div key={product.id}>
               <div className="navbar-product-container">
                 <NavbarProduct nama={product.nama} cartItem={cartItem} />
-                <div className="navbar-cart-container">
+                <div
+                  className="navbar-cart-container"
+                  style={{ display: user ? "none" : "block" }}
+                >
                   <button type="button" onClick={handleCart}>
                     <img src={CartLogo} alt="cart logo" />
                     <p>{cartItem && cartItem.length}</p>
@@ -52,6 +58,10 @@ const DetailPage = ({ products, onAdd, cartItem, onRemove }) => {
                 product={product}
                 cartItem={cartItem}
                 onRemove={onRemove}
+                user={user}
+                products={products}
+                setBuying={setBuying}
+                buying={buying}
               />
             </div>
           ))}

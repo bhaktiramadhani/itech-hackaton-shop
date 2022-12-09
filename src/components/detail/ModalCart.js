@@ -1,7 +1,14 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const ModalCart = ({ cartItem, onAdd, onRemove, setModal }) => {
+const ModalCart = ({
+  cartItem,
+  onAdd,
+  onRemove,
+  setModal,
+  setBuying,
+  buying,
+}) => {
   const navigate = useNavigate();
   return (
     <div className="modal-cart-content">
@@ -14,7 +21,7 @@ const ModalCart = ({ cartItem, onAdd, onRemove, setModal }) => {
           <p className="empty-product">Masih Kosong!</p>
         )}
         {cartItem.map((item) => (
-          <div className="cart-product-item">
+          <div className="cart-product-item" key={item.id}>
             <img src={item.img} alt={item.nama} width={120} />
             <div className="cart-product-text">
               <h3>{item.nama}</h3>
@@ -25,6 +32,7 @@ const ModalCart = ({ cartItem, onAdd, onRemove, setModal }) => {
                   onClick={(e) => {
                     e.preventDefault();
                     onRemove(item);
+                    setBuying(!buying);
                   }}
                 >
                   -

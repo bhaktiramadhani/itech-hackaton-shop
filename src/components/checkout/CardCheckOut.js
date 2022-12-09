@@ -32,7 +32,11 @@ const CardCheckOut = ({ cartItem, onAdd, onRemove }) => {
         String(hasil.reduce((acc, curr) => acc + curr)),
         "Rp. "
       );
-      const result = `https://web.whatsapp.com/send/?phone=+62895362555775&text=${cartItem.map(
+      const mobile = "api.whatsapp.com";
+      const notMobile = "web.whatsapp.com";
+      const result = `https://${
+        navigator.userAgent.includes("Android") ? mobile : notMobile
+      }/send/?phone=+62895362555775&text=${cartItem.map(
         (item) =>
           `Nama%20Pesanan%20:%20${item.nama}%0AJumlah%20:%20${
             item.qty

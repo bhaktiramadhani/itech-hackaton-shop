@@ -1,15 +1,43 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { MySwal } from "../dashboard/Dashboard";
 
-const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
+const CardDetail = ({
+  onAdd,
+  product,
+  cartItem,
+  onRemove,
+  user,
+  setBuying,
+  buying,
+}) => {
   const navigate = useNavigate();
   const { img, nama, harga, kategori, desc } = product;
+
+  useEffect(() => {
+    cartItem
+      .filter((item) => item.id === product.id)
+      .map((item) => (item ? setBuying(true) : setBuying(false)));
+  }, [cartItem]);
+
+  useEffect(() => {
+    user &&
+      MySwal.fire({
+        icon: "info",
+        title: "Anda admin tidak bisa membeli produk",
+      });
+  }, []);
+
   const handleTambahKeranjang = (e) => {
     onAdd(product);
     const buttonBeli = document.querySelector(".card-detail-button-beli");
     const buttonIncrement = document.querySelector(".button-increment-produk");
     buttonBeli.style.display = "block";
     buttonIncrement.style.display = "flex";
+  };
+
+  const handleBeliProdukLain = () => {
+    navigate(-1);
   };
   return (
     <div className="card-detail-container">
@@ -34,9 +62,21 @@ const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
       <div className="card-detail-button">
         <button
           className="card-detail-button-tambah"
-          onClick={handleTambahKeranjang}
+          onClick={buying ? handleBeliProdukLain : handleTambahKeranjang}
+          disabled={user ? true : false}
+          title={
+            user ? "Anda admin tidak bisa membeli product" : "Tambah keranjang"
+          }
         >
-          Tambahkan ke keranjang
+          {/* {products.id.toLowerCase().includes(id.toLowerCase())
+            ? "Beli Produk Lain"
+            : "Tambahkan ke keranjang"} */}
+          {/* {cartItem
+            .filter((data) => data.id === id)
+            .map((data) =>
+              data ? "Beli Produk Lain" : "Tambahkan ke keranjang"
+            )} */}
+          {buying ? "Beli Produk Lain" : "Tambahkan ke keranjang"}
         </button>
         <button
           onClick={() => {
@@ -60,7 +100,14 @@ const CardDetail = ({ onAdd, product, cartItem, onRemove }) => {
               .map((item) => (item ? "flex" : "none")),
           }}
         >
-          <button onClick={() => onRemove(product)}>-</button>
+          <button
+            onClick={() => {
+              onRemove(product);
+              setBuying(!buying);
+            }}
+          >
+            -
+          </button>
           <p>
             {cartItem
               .filter((item) => item.id === product.id)

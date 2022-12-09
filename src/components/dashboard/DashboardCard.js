@@ -1,5 +1,4 @@
 import React from "react";
-import DashboardCardButton from "./DashboardCardButton";
 import DashboardCardMore from "./DashboardCardMore";
 
 const DashboardCard = ({ products, kategori, handleEdit }) => {

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./dashboard.css";
 import gambarAdmin from "../../assets/images/logo-admin.svg";
 
-const DashboardSidebar = () => {
+const DashboardSidebar = ({ user }) => {
   const handleCLoseSidebar = () => {
     document.querySelector(".dashboard-sidebar-wrapper").style.display = "none";
     document.querySelector(".dashboard-main").style.marginLeft = "0";
@@ -26,7 +26,7 @@ const DashboardSidebar = () => {
             <img src={gambarAdmin} alt="gambar admin" width="43" height="41" />
             <div>
               <p>Anda Log-in sebagai</p>
-              <p>Admin</p>
+              <p>{user.email}</p>
             </div>
           </div>
           <button className="sidebar-close" onClick={handleCLoseSidebar}>
