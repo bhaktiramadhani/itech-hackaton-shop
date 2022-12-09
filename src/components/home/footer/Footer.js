@@ -35,7 +35,6 @@ const Footer = () => {
             width="390"
             height="215"
             loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
             title="maps"
           ></iframe>
         </div>
