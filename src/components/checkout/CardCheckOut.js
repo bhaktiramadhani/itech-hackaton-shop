@@ -80,7 +80,6 @@ const CardCheckOut = ({ cartItem, onAdd, onRemove }) => {
             onChange={(e) => setTanggalAcara(e.target.value)}
             required
           />
-          <p>P.S: Estimasi waktu selesai 2-3 hari setelah pemesanan.</p>
         </div>
         <div className="checkout-list-wrapper">
           <h3>Daftar Pesanan</h3>
